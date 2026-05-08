@@ -1,24 +1,238 @@
+# Professional Homepage Upgrade for Saxena Path Lab
+
+Replace your current `index.html` code with the code below.
+
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My First Website</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saxena Path Lab</title>
+
   <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      margin-top: 100px;
-      background: #f0f0f0;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
-    h1 {
-      color: #333;
+    body {
+      background: #f4f8fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0077b6;
+      color: white;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: bold;
+    }
+
+    .hero {
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      background: linear-gradient(to right, #caf0f8, #ffffff);
+    }
+
+    .hero h1 {
+      font-size: 52px;
+      margin-bottom: 20px;
+      color: #023e8a;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: #0077b6;
+      color: white;
+      padding: 14px 28px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 18px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #023e8a;
+    }
+
+    .services {
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .services h2 {
+      font-size: 40px;
+      margin-bottom: 40px;
+      color: #023e8a;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      color: #0077b6;
+    }
+
+    .about {
+      background: white;
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #023e8a;
+    }
+
+    .contact {
+      padding: 70px 20px;
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size: 40px;
+      margin-bottom: 20px;
+      color: #023e8a;
+    }
+
+    footer {
+      background: #023e8a;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+
+    @media(max-width: 768px) {
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      nav {
+        display: none;
+      }
     }
   </style>
 </head>
 <body>
 
-  <h1>Hello World 🌍</h1>
-  <p>This website is hosted free using GitHub Pages.</p>
+  <header>
+    <h2>Saxena Path Lab</h2>
+
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Trusted Diagnostic & Pathology Services</h1>
+
+    <p>
+      Accurate reports, modern equipment, experienced staff, and fast service.
+      Your health is our priority.
+    </p>
+
+    <a class="btn" href="#contact">Book Appointment</a>
+  </section>
+
+  <section class="services" id="services">
+    <h2>Our Services</h2>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Blood Tests</h3>
+        <p>Complete blood count, sugar tests, thyroid, cholesterol, and more.</p>
+      </div>
+
+      <div class="card">
+        <h3>Urine Analysis</h3>
+        <p>Fast and accurate urine testing with detailed reports.</p>
+      </div>
+
+      <div class="card">
+        <h3>Health Packages</h3>
+        <p>Affordable full body checkup and preventive health packages.</p>
+      </div>
+
+      <div class="card">
+        <h3>Digital Reports</h3>
+        <p>Get reports quickly and securely online.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <h2>About Us</h2>
+
+    <p>
+      Saxena Path Lab is committed to providing reliable diagnostic services
+      with modern technology and expert care.
+    </p>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Contact Us</h2>
+
+    <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+    <p><strong>Email:</strong> saxenapathlab@gmail.com</p>
+    <p><strong>Address:</strong> Add Your Clinic Address Here</p>
+  </section>
+
+  <footer>
+    <p>© 2026 Saxena Path Lab | All Rights Reserved</p>
+  </footer>
 
 </body>
 </html>
+```
+
+# How To Update Your Website
+
+1. Open your GitHub repository.
+2. Click `index.html`.
+3. Click the pencil/edit icon.
+4. Remove old code.
+5. Paste the new code.
+6. Click `Commit changes`.
+7. Wait 1–2 minutes.
+8. Refresh your website.
+
+Your website will automatically update online.
