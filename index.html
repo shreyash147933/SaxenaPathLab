@@ -1,238 +1,331 @@
-# Professional Homepage Upgrade for Saxena Path Lab
-
-Replace your current `index.html` code with the code below.
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Saxena Path Lab</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<title>Saxena Path Lab</title>
 
-    body {
-      background: #f4f8fb;
-      color: #222;
-      line-height: 1.6;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    header {
-      background: #0077b6;
-      color: white;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+<style>
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: bold;
-    }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+scroll-behavior:smooth;
+}
 
-    .hero {
-      height: 85vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      background: linear-gradient(to right, #caf0f8, #ffffff);
-    }
+body{
+background:#f5fbff;
+color:#222;
+}
 
-    .hero h1 {
-      font-size: 52px;
-      margin-bottom: 20px;
-      color: #023e8a;
-    }
+header{
+background:white;
+padding:18px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
 
-    .hero p {
-      max-width: 700px;
-      font-size: 20px;
-      margin-bottom: 30px;
-    }
+.logo{
+font-size:28px;
+font-weight:700;
+color:#0077b6;
+}
 
-    .btn {
-      background: #0077b6;
-      color: white;
-      padding: 14px 28px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 18px;
-      transition: 0.3s;
-    }
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:#222;
+font-weight:500;
+transition:0.3s;
+}
 
-    .btn:hover {
-      background: #023e8a;
-    }
+nav a:hover{
+color:#0077b6;
+}
 
-    .services {
-      padding: 70px 20px;
-      text-align: center;
-    }
+.hero{
+height:90vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+background:
+linear-gradient(rgba(0,119,182,0.7),rgba(0,119,182,0.7)),
+url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?q=80&w=1400&auto=format&fit=crop');
+background-size:cover;
+background-position:center;
+color:white;
+}
 
-    .services h2 {
-      font-size: 40px;
-      margin-bottom: 40px;
-      color: #023e8a;
-    }
+.hero-content h1{
+font-size:60px;
+margin-bottom:20px;
+}
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 25px;
-      max-width: 1100px;
-      margin: auto;
-    }
+.hero-content p{
+font-size:20px;
+max-width:800px;
+margin:auto;
+margin-bottom:30px;
+}
 
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:white;
+color:#0077b6;
+text-decoration:none;
+border-radius:40px;
+font-weight:600;
+transition:0.3s;
+}
 
-    .card h3 {
-      margin-bottom: 15px;
-      color: #0077b6;
-    }
+.btn:hover{
+transform:translateY(-3px);
+}
 
-    .about {
-      background: white;
-      padding: 70px 20px;
-      text-align: center;
-    }
+section{
+padding:90px 8%;
+}
 
-    .about h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-      color: #023e8a;
-    }
+.section-title{
+text-align:center;
+font-size:42px;
+margin-bottom:50px;
+color:#023e8a;
+}
 
-    .contact {
-      padding: 70px 20px;
-      text-align: center;
-    }
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
 
-    .contact h2 {
-      font-size: 40px;
-      margin-bottom: 20px;
-      color: #023e8a;
-    }
+.card{
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+transition:0.3s;
+}
 
-    footer {
-      background: #023e8a;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
+.card:hover{
+transform:translateY(-8px);
+}
 
-    @media(max-width: 768px) {
-      .hero h1 {
-        font-size: 38px;
-      }
+.card h3{
+margin-bottom:15px;
+color:#0077b6;
+}
 
-      nav {
-        display: none;
-      }
-    }
-  </style>
+.about{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:50px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:20px;
+}
+
+.about-text h2{
+font-size:42px;
+margin-bottom:20px;
+color:#023e8a;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.stat{
+background:#0077b6;
+color:white;
+padding:30px;
+border-radius:20px;
+text-align:center;
+}
+
+.contact{
+background:#023e8a;
+color:white;
+border-radius:25px;
+text-align:center;
+padding:60px;
+}
+
+.contact h2{
+font-size:42px;
+margin-bottom:20px;
+}
+
+footer{
+background:#001d3d;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:60px;
+}
+
+@media(max-width:900px){
+
+.hero-content h1{
+font-size:42px;
+}
+
+.about{
+grid-template-columns:1fr;
+}
+
+nav{
+display:none;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <header>
-    <h2>Saxena Path Lab</h2>
+<header>
 
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<div class="logo">Saxena Path Lab</div>
 
-  <section class="hero">
-    <h1>Trusted Diagnostic & Pathology Services</h1>
+<nav>
+<a href="#services">Services</a>
+<a href="#about">About</a>
+<a href="#contact">Contact</a>
+</nav>
 
-    <p>
-      Accurate reports, modern equipment, experienced staff, and fast service.
-      Your health is our priority.
-    </p>
+</header>
 
-    <a class="btn" href="#contact">Book Appointment</a>
-  </section>
+<section class="hero">
 
-  <section class="services" id="services">
-    <h2>Our Services</h2>
+<div class="hero-content">
 
-    <div class="cards">
-      <div class="card">
-        <h3>Blood Tests</h3>
-        <p>Complete blood count, sugar tests, thyroid, cholesterol, and more.</p>
-      </div>
+<h1>Advanced Diagnostic & Pathology Care</h1>
 
-      <div class="card">
-        <h3>Urine Analysis</h3>
-        <p>Fast and accurate urine testing with detailed reports.</p>
-      </div>
+<p>
+Trusted pathology services with accurate reports,
+modern equipment, and compassionate healthcare support.
+</p>
 
-      <div class="card">
-        <h3>Health Packages</h3>
-        <p>Affordable full body checkup and preventive health packages.</p>
-      </div>
+<a href="#contact" class="btn">Book Appointment</a>
 
-      <div class="card">
-        <h3>Digital Reports</h3>
-        <p>Get reports quickly and securely online.</p>
-      </div>
-    </div>
-  </section>
+</div>
 
-  <section class="about" id="about">
-    <h2>About Us</h2>
+</section>
 
-    <p>
-      Saxena Path Lab is committed to providing reliable diagnostic services
-      with modern technology and expert care.
-    </p>
-  </section>
+<section id="services">
 
-  <section class="contact" id="contact">
-    <h2>Contact Us</h2>
+<h2 class="section-title">Our Services</h2>
 
-    <p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
-    <p><strong>Email:</strong> saxenapathlab@gmail.com</p>
-    <p><strong>Address:</strong> Add Your Clinic Address Here</p>
-  </section>
+<div class="cards">
 
-  <footer>
-    <p>© 2026 Saxena Path Lab | All Rights Reserved</p>
-  </footer>
+<div class="card">
+<h3>Blood Testing</h3>
+<p>Complete blood count, diabetes tests, thyroid, cholesterol and more.</p>
+</div>
+
+<div class="card">
+<h3>Health Packages</h3>
+<p>Affordable preventive and full-body health checkup packages.</p>
+</div>
+
+<div class="card">
+<h3>Digital Reports</h3>
+<p>Fast and secure online diagnostic reports for patients.</p>
+</div>
+
+<div class="card">
+<h3>Home Collection</h3>
+<p>Convenient blood sample collection from your home.</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="about" id="about">
+
+<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop">
+
+<div class="about-text">
+
+<h2>Why Choose Us?</h2>
+
+<p>
+Saxena Path Lab provides reliable diagnostic services using advanced
+technology and experienced healthcare professionals. We are committed
+to accurate results and patient satisfaction.
+</p>
+
+<div class="stats">
+
+<div class="stat">
+<h3>10K+</h3>
+<p>Patients</p>
+</div>
+
+<div class="stat">
+<h3>99%</h3>
+<p>Accuracy</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>Support</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="contact">
+
+<h2>Contact Us</h2>
+
+<p><strong>Phone:</strong> +91 XXXXX XXXXX</p>
+<p><strong>Email:</strong> saxenapathlab@gmail.com</p>
+<p><strong>Address:</strong> Add Your Address Here</p>
+
+<br><br>
+
+<a href="tel:+91XXXXXXXXXX" class="btn">
+Call Now
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 Saxena Path Lab | All Rights Reserved</p>
+
+</footer>
 
 </body>
 </html>
-```
-
-# How To Update Your Website
-
-1. Open your GitHub repository.
-2. Click `index.html`.
-3. Click the pencil/edit icon.
-4. Remove old code.
-5. Paste the new code.
-6. Click `Commit changes`.
-7. Wait 1–2 minutes.
-8. Refresh your website.
-
-Your website will automatically update online.
