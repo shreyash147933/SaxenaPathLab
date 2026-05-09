@@ -390,7 +390,43 @@ Call Now
 </div>
 
 </section>
+<section class="testimonials reveal">
 
+<h2 class="section-title">
+Patient Testimonials
+</h2>
+
+<div class="testimonial-slider">
+
+<div class="testimonial active-testimonial">
+<p>
+“Excellent diagnostic service and fast reports.
+Very professional staff.”
+</p>
+
+<h4>— Rahul Sharma</h4>
+</div>
+
+<div class="testimonial">
+<p>
+“Luxury-level experience and accurate results.
+Highly recommended.”
+</p>
+
+<h4>— Priya Mehta</h4>
+</div>
+
+<div class="testimonial">
+<p>
+“Very clean lab, smooth process, and helpful team.”
+</p>
+
+<h4>— Amit Verma</h4>
+</div>
+
+</div>
+
+</section>
 <footer>
 
 <p>© 2026 Saxena Path Lab | All Rights Reserved</p>
@@ -556,6 +592,55 @@ opacity:0;
 }
 
 }
+ .testimonials{
+text-align:center;
+padding:100px 8%;
+}
+
+.testimonial-slider{
+position:relative;
+max-width:800px;
+margin:auto;
+}
+
+.testimonial{
+display:none;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+padding:40px;
+border-radius:24px;
+border:1px solid rgba(212,175,55,0.2);
+box-shadow:0 8px 30px rgba(0,0,0,0.25);
+animation:fadeTestimonial 1s;
+}
+
+.active-testimonial{
+display:block;
+}
+
+.testimonial p{
+font-size:22px;
+line-height:1.8;
+color:#f8fafc;
+}
+
+.testimonial h4{
+margin-top:20px;
+color:#d4af37;
+font-size:18px;
+}
+
+@keyframes fadeTestimonial{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
 </style>
   
 <a href="tel:+919876543210" class="call-btn">
@@ -635,6 +720,35 @@ Math.random() * 10 + 's';
 particlesContainer.appendChild(particle);
 
 }
+
+</script>
+ <script>
+
+const testimonials =
+document.querySelectorAll('.testimonial');
+
+let testimonialIndex = 0;
+
+function showTestimonials(){
+
+testimonials.forEach((testimonial)=>{
+testimonial.classList.remove('active-testimonial');
+});
+
+testimonialIndex++;
+
+if(testimonialIndex > testimonials.length){
+
+testimonialIndex = 1;
+
+}
+
+testimonials[testimonialIndex - 1]
+.classList.add('active-testimonial');
+
+}
+
+setInterval(showTestimonials, 4000);
 
 </script>
 </body>
