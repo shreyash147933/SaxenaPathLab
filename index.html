@@ -250,7 +250,8 @@ display:none;
 </head>
 
 <body>
-  <div id="loader">
+
+<div id="particles"></div>
 
   <h1>SAXENA PATH LAB</h1>
 
@@ -521,6 +522,40 @@ background:#d4af37;
 color:#111827;
 box-shadow:0 0 25px rgba(212,175,55,0.6);
 }
+ #particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-2;
+}
+
+.particle{
+position:absolute;
+border-radius:50%;
+background:rgba(212,175,55,0.35);
+animation:floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+
+0%{
+transform:translateY(100vh) scale(0);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-10vh) scale(1);
+opacity:0;
+}
+
+}
 </style>
   
 <a href="tel:+919876543210" class="call-btn">
@@ -574,5 +609,33 @@ reveal();
 </a>
 
 </div>
+ <script>
+
+const particlesContainer = document.getElementById('particles');
+
+for(let i = 0; i < 40; i++){
+
+const particle = document.createElement('div');
+
+particle.classList.add('particle');
+
+let size = Math.random() * 6 + 2;
+
+particle.style.width = size + 'px';
+particle.style.height = size + 'px';
+
+particle.style.left = Math.random() * 100 + 'vw';
+
+particle.style.animationDuration =
+(Math.random() * 10 + 10) + 's';
+
+particle.style.animationDelay =
+Math.random() * 10 + 's';
+
+particlesContainer.appendChild(particle);
+
+}
+
+</script>
 </body>
 </html>
