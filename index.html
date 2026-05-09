@@ -487,6 +487,40 @@ transition:all 1s ease;
 transform:translateY(0px);
 opacity:1;
 }
+ .floating-bar{
+position:fixed;
+right:20px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:99999;
+}
+
+.floating-bar a{
+width:60px;
+height:60px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+border:1px solid rgba(212,175,55,0.2);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:28px;
+color:#d4af37;
+transition:0.4s;
+box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+.floating-bar a:hover{
+transform:scale(1.12);
+background:#d4af37;
+color:#111827;
+box-shadow:0 0 25px rgba(212,175,55,0.6);
+}
 </style>
   
 <a href="tel:+919876543210" class="call-btn">
@@ -521,5 +555,24 @@ reveals[i].classList.add('active');
 reveal();
 
 </script>
+ <div class="floating-bar">
+
+<a href="https://wa.me/918485808399" target="_blank">
+💬
+</a>
+
+<a href="tel:+918485808399">
+☎
+</a>
+
+<a href="mailto:saxenapathlab2000@gmail.com">
+✉
+</a>
+
+<a href="https://maps.google.com" target="_blank">
+📍
+</a>
+
+</div>
 </body>
 </html>
