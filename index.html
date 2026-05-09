@@ -699,17 +699,26 @@ reveals[i].classList.add('active');
 reveal();
 
 </script>
- <div class="floating-bar">
+ # Fix for Broken Website Effects & Layout
 
-<a href="https://wa.me/918485808399" target="_blank">
+Your website structure became broken because some HTML sections were pasted after the JavaScript incorrectly.
+
+Replace the ENTIRE BOTTOM PART of your `index.html` (from the floating bar section till the end) with this corrected structure.
+
+```html
+<!-- FLOATING ACTION BAR -->
+
+<div class="floating-bar">
+
+<a href="https://wa.me/919876543210" target="_blank">
 💬
 </a>
 
-<a href="tel:+918485808399">
+<a href="tel:+919876543210">
 ☎
 </a>
 
-<a href="mailto:saxenapathlab2000@gmail.com">
+<a href="mailto:saxenapathlab@gmail.com">
 ✉
 </a>
 
@@ -718,7 +727,60 @@ reveal();
 </a>
 
 </div>
- <script>
+
+
+<!-- AI ASSISTANT -->
+
+<div class="ai-assistant">
+
+<div class="ai-message">
+Hi 👋<br>
+Need help booking a test?
+</div>
+
+<div class="ai-icon">
+🤖
+</div>
+
+</div>
+
+
+<!-- SCROLL ANIMATION SCRIPT -->
+
+<script>
+
+window.addEventListener('scroll', reveal);
+
+function reveal(){
+
+var reveals = document.querySelectorAll('.reveal');
+
+for(var i = 0; i < reveals.length; i++){
+
+var windowHeight = window.innerHeight;
+
+var revealTop = reveals[i].getBoundingClientRect().top;
+
+var revealPoint = 100;
+
+if(revealTop < windowHeight - revealPoint){
+
+reveals[i].classList.add('active');
+
+}
+
+}
+
+}
+
+reveal();
+
+</script>
+
+
+<!-- PARTICLE BACKGROUND SCRIPT -->
+
+<script>
 
 const particlesContainer = document.getElementById('particles');
 
@@ -746,7 +808,11 @@ particlesContainer.appendChild(particle);
 }
 
 </script>
- <script>
+
+
+<!-- TESTIMONIAL SLIDER SCRIPT -->
+
+<script>
 
 const testimonials =
 document.querySelectorAll('.testimonial');
@@ -775,5 +841,8 @@ testimonials[testimonialIndex - 1]
 setInterval(showTestimonials, 4000);
 
 </script>
+
 </body>
 </html>
+```
+
