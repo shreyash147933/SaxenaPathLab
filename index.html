@@ -492,6 +492,34 @@ opacity:1;
 <a href="tel:+919876543210" class="call-btn">
 ☎
 </a>
+<script>
 
+window.addEventListener('scroll', reveal);
+
+function reveal(){
+
+var reveals = document.querySelectorAll('.reveal');
+
+for(var i = 0; i < reveals.length; i++){
+
+var windowHeight = window.innerHeight;
+
+var revealTop = reveals[i].getBoundingClientRect().top;
+
+var revealPoint = 100;
+
+if(revealTop < windowHeight - revealPoint){
+
+reveals[i].classList.add('active');
+
+}
+
+}
+
+}
+
+reveal();
+
+</script>
 </body>
 </html>
