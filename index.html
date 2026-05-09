@@ -243,6 +243,13 @@ transform:scale(1.1) translateY(-20px);
 </head>
 
 <body>
+  <div id="loader">
+
+  <h1>SAXENA PATH LAB</h1>
+
+  <p>Precision • Trust • Excellence</p>
+
+</div>
 <div class="bg-animation"></div>
 
 <header>
@@ -392,6 +399,52 @@ target="_blank"
 </a>
 
 <style>
+  #loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#020617;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:100000;
+animation:fadeOut 1s ease forwards;
+animation-delay:2.5s;
+}
+
+#loader h1{
+font-size:60px;
+color:#d4af37;
+letter-spacing:5px;
+text-shadow:0 0 20px rgba(212,175,55,0.7);
+animation:pulse 2s infinite alternate;
+}
+
+#loader p{
+margin-top:20px;
+font-size:20px;
+color:#cbd5e1;
+letter-spacing:3px;
+}
+
+@keyframes pulse{
+from{
+transform:scale(1);
+}
+to{
+transform:scale(1.05);
+}
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
 
 .whatsapp-btn{
 position:fixed;
