@@ -391,11 +391,28 @@ display:none;
 font-size:42px;
 }
 }
-
+#cursor-glow{
+position:fixed;
+width:300px;
+height:300px;
+background:radial-gradient(
+circle,
+rgba(212,175,55,0.18) 0%,
+transparent 70%
+);
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:-1;
+transition:
+top 0.08s linear,
+left 0.08s linear;
+}
 </style>
 </head>
 
 <body>
+
+<div id="cursor-glow"></div>
 
 <div id="loader">
 <h1>SAXENA PATH LAB</h1>
@@ -635,6 +652,15 @@ counter.innerText = target;
 };
 
 updateCounter();
+
+});
+  const glow = document.getElementById('cursor-glow');
+
+document.addEventListener('mousemove',(e)=>{
+
+glow.style.left = e.clientX + 'px';
+
+glow.style.top = e.clientY + 'px';
 
 });
 </script>
