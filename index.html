@@ -476,6 +476,60 @@ margin-top:20px;
 color:#d4af37;
 font-weight:600;
 }
+  #themeToggle{
+position:fixed;
+top:22px;
+right:30px;
+width:55px;
+height:55px;
+border:none;
+border-radius:50%;
+background:linear-gradient(135deg,#d4af37,#f5d76e);
+font-size:24px;
+cursor:pointer;
+z-index:100000;
+box-shadow:0 0 20px rgba(212,175,55,0.5);
+transition:0.4s;
+}
+
+#themeToggle:hover{
+transform:scale(1.1) rotate(12deg);
+}
+
+.light-mode{
+background:#f8fafc;
+color:#0f172a;
+}
+
+.light-mode header{
+background:rgba(255,255,255,0.7);
+}
+
+.light-mode .card,
+.light-mode .stat,
+.light-mode .appointment-box,
+.light-mode .report-box,
+.light-mode .testimonial,
+.light-mode .contact{
+background:rgba(255,255,255,0.85);
+color:#0f172a;
+}
+
+.light-mode input,
+.light-mode textarea,
+.light-mode select{
+background:rgba(0,0,0,0.05);
+color:#0f172a;
+}
+
+.light-mode nav a{
+color:#0f172a;
+}
+
+.light-mode .ai-message{
+background:rgba(0,0,0,0.05);
+color:#0f172a;
+}
 </style>
 </head>
 
@@ -503,6 +557,9 @@ font-weight:600;
 <a href="#appointment">Appointment</a>
 <a href="#contact">Contact</a>
 </nav>
+  <button id="themeToggle">
+🌙
+</button>
 </header>
 
 <section class="hero">
@@ -855,6 +912,24 @@ message.innerText =
 }
 
 }
+  const themeToggle =
+document.getElementById('themeToggle');
+
+themeToggle.addEventListener('click',()=>{
+
+document.body.classList.toggle('light-mode');
+
+if(document.body.classList.contains('light-mode')){
+
+themeToggle.innerHTML = '☀️';
+
+}else{
+
+themeToggle.innerHTML = '🌙';
+
+}
+
+});
 </script>
 
 </body>
