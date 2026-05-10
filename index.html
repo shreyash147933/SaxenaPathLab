@@ -155,9 +155,7 @@ align-items:center;
 justify-content:center;
 text-align:center;
 padding:20px;
-background:
-linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)),
-url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1400&auto=format&fit=crop');
+
 background-size:cover;
 background-position:center;
 }
@@ -530,6 +528,32 @@ color:#0f172a;
 background:rgba(0,0,0,0.05);
 color:#0f172a;
 }
+  .hero{
+position:relative;
+overflow:hidden;
+}
+
+.hero-video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+opacity:0.35;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+z-index:-1;
+}
 </style>
 </head>
 
@@ -563,6 +587,13 @@ color:#0f172a;
 </header>
 
 <section class="hero">
+  <video autoplay muted loop playsinline class="hero-video">
+
+<source
+src="https://cdn.coverr.co/videos/coverr-doctor-working-on-computer-1560081338087?download=1080p"
+type="video/mp4">
+
+</video>
 <div class="hero-content">
 <h1>Advanced Diagnostic & Pathology Care</h1>
 <p>
