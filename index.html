@@ -460,15 +460,15 @@ Saxena Path Lab provides reliable diagnostic services using advanced technology 
 
 <div class="stats">
 <div class="stat">
-<h3>10K+</h3>
+<h3 class="counter" data-target="10000">0</h3>
 <p>Patients</p>
 </div>
 <div class="stat">
-<h3>99%</h3>
+<h3 class="counter" data-target="99">0</h3>
 <p>Accuracy</p>
 </div>
 <div class="stat">
-<h3>24/7</h3>
+<h3 class="counter" data-target="24">0</h3>
 <p>Support</p>
 </div>
 </div>
@@ -606,6 +606,37 @@ testimonials[testimonialIndex - 1].classList.add('active-testimonial');
 }
 
 setInterval(showTestimonials, 4000);
+  const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+
+counter.innerText = '0';
+
+const updateCounter = () => {
+
+const target = +counter.getAttribute('data-target');
+
+const c = +counter.innerText;
+
+const increment = target / 100;
+
+if(c < target){
+
+counter.innerText = `${Math.ceil(c + increment)}`;
+
+setTimeout(updateCounter, 30);
+
+}else{
+
+counter.innerText = target;
+
+}
+
+};
+
+updateCounter();
+
+});
 </script>
 
 </body>
