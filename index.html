@@ -407,6 +407,47 @@ transition:
 top 0.08s linear,
 left 0.08s linear;
 }
+  .appointment-box{
+max-width:700px;
+margin:auto;
+background:rgba(255,255,255,0.08);
+padding:40px;
+border-radius:25px;
+backdrop-filter:blur(14px);
+border:1px solid rgba(212,175,55,0.2);
+}
+
+.appointment-box form{
+display:flex;
+flex-direction:column;
+gap:20px;
+}
+
+.appointment-box input,
+.appointment-box select,
+.appointment-box textarea{
+padding:16px;
+border:none;
+border-radius:14px;
+background:rgba(255,255,255,0.08);
+color:white;
+font-size:16px;
+outline:none;
+}
+
+.appointment-box textarea{
+resize:none;
+}
+
+.appointment-box input::placeholder,
+.appointment-box textarea::placeholder{
+color:#cbd5e1;
+}
+
+.appointment-box button{
+border:none;
+cursor:pointer;
+}
 </style>
 </head>
 
@@ -430,6 +471,7 @@ left 0.08s linear;
 <nav>
 <a href="#services">Services</a>
 <a href="#about">About</a>
+<a href="#appointment">Appointment</a>
 <a href="#contact">Contact</a>
 </nav>
 </header>
@@ -491,7 +533,64 @@ Saxena Path Lab provides reliable diagnostic services using advanced technology 
 </div>
 </div>
 </section>
+<section id="appointment" class="reveal">
 
+<h2 class="section-title">
+Book Appointment
+</h2>
+
+<div class="appointment-box">
+
+<form>
+
+<input type="text"
+placeholder="Full Name"
+required>
+
+<input type="tel"
+placeholder="Phone Number"
+required>
+
+<select required>
+
+<option value="">
+Select Test
+</option>
+
+<option>
+Blood Test
+</option>
+
+<option>
+Diabetes Test
+</option>
+
+<option>
+Thyroid Profile
+</option>
+
+<option>
+Full Body Checkup
+</option>
+
+</select>
+
+<input type="date" required>
+
+<textarea
+placeholder="Additional Notes"
+rows="5">
+</textarea>
+
+<button type="submit" class="btn">
+Book Now
+</button>
+
+</form>
+
+</div>
+
+</section>
 <section id="contact" class="reveal">
 <div class="contact">
 <h2>Contact Us</h2>
