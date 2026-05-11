@@ -973,7 +973,6 @@ Patient Testimonials
 </div>
 
 </section>
-</section>
 
 <footer>
 <p>© 2026 Saxena Path Lab | All Rights Reserved</p>
@@ -1305,40 +1304,6 @@ element.style.transform =
 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
 
 });
-
-});
-  const counters =
-document.querySelectorAll('.counter');
-
-counters.forEach(counter=>{
-
-const updateCounter = ()=>{
-
-const target =
-+counter.getAttribute('data-target');
-
-const count =
-+counter.innerText;
-
-const increment =
-target / 120;
-
-if(count < target){
-
-counter.innerText =
-Math.ceil(count + increment);
-
-setTimeout(updateCounter,20);
-
-}else{
-
-counter.innerText = target;
-
-}
-
-};
-
-updateCounter();
 
 });
 </script>
