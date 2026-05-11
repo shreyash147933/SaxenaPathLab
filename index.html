@@ -648,6 +648,18 @@ background:#d4af37;
 font-weight:700;
 cursor:pointer;
 }
+  .testimonial-slider{
+display:flex;
+gap:25px;
+overflow-x:auto;
+scroll-behavior:smooth;
+padding-bottom:10px;
+scrollbar-width:none;
+}
+
+.testimonial-slider::-webkit-scrollbar{
+display:none;
+}
 </style>
  <link
 rel="icon"
@@ -885,7 +897,12 @@ loading="lazy">
 </section>
 
 <section class="testimonials reveal">
-<h2 class="section-title">Patient Testimonials</h2>
+
+<h2 class="section-title">
+Patient Testimonials
+</h2>
+
+<div class="testimonial-slider">
 
 <div class="testimonial active-testimonial">
 <p>
@@ -907,6 +924,38 @@ loading="lazy">
 </p>
 <h4>— Amit Verma</h4>
 </div>
+
+<div class="testimonial">
+<p>
+“Online appointment booking was extremely convenient and quick.”
+</p>
+<h4>— Sneha Kulkarni</h4>
+</div>
+
+<div class="testimonial">
+<p>
+“Best pathology experience I’ve had. Reports arrived on time.”
+</p>
+<h4>— Rakesh Patel</h4>
+</div>
+
+<div class="testimonial">
+<p>
+“Modern setup, excellent hygiene, and very cooperative staff.”
+</p>
+<h4>— Neha Joshi</h4>
+</div>
+
+<div class="testimonial">
+<p>
+“The AI assistant helped me understand which tests I needed.”
+</p>
+<h4>— Aditya Rao</h4>
+</div>
+
+</div>
+
+</section>
 </section>
 
 <footer>
@@ -1178,6 +1227,31 @@ messages.scrollTop = messages.scrollHeight;
 input.value = '';
 
 }
+  const slider =
+document.querySelector('.testimonial-slider');
+
+let scrollAmount = 0;
+
+setInterval(()=>{
+
+if(slider){
+
+scrollAmount += 320;
+
+if(scrollAmount >= slider.scrollWidth){
+
+scrollAmount = 0;
+
+}
+
+slider.scrollTo({
+left:scrollAmount,
+behavior:'smooth'
+});
+
+}
+
+},3000);
 </script>
 
 </body>
