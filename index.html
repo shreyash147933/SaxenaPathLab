@@ -714,6 +714,7 @@ border:2px solid #d4af37;
 <a href="#services">Services</a>
 <a href="#about">About</a>
 <a href="#reports">Reports</a>
+<a href="#rates">Rate List</a>
 <a href="#appointment">Appointment</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -770,6 +771,127 @@ Trusted pathology services with accurate reports, modern equipment, and compassi
 <li>Dengue & Malaria Testing</li>
 
 </ul>
+  <section id="rates" class="reveal">
+
+<h2 class="section-title">
+Test & Rate List 2024-25
+</h2>
+
+<div class="report-box">
+
+<input
+type="text"
+id="searchInput"
+placeholder="Search Test Name..."
+onkeyup="searchTests()">
+
+<table
+style="
+width:100%;
+margin-top:30px;
+border-collapse:collapse;
+">
+
+<tr style="
+color:#d4af37;
+font-size:18px;
+">
+
+<th style="padding:16px; text-align:left;">
+Test Name
+</th>
+
+<th style="padding:16px; text-align:left;">
+Price
+</th>
+
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">CBC</td>
+<td style="padding:14px;">₹300</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">HB</td>
+<td style="padding:14px;">₹100</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">TLC / DLC</td>
+<td style="padding:14px;">₹200</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">Platelets</td>
+<td style="padding:14px;">₹200</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">Blood Group</td>
+<td style="padding:14px;">₹50</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">HbA1c</td>
+<td style="padding:14px;">₹550</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">Lipid Profile</td>
+<td style="padding:14px;">₹550</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">Liver Function Test (LFT)</td>
+<td style="padding:14px;">₹650</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">Kidney Function Test (KFT)</td>
+<td style="padding:14px;">₹650</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">Thyroid Profile (TFT)</td>
+<td style="padding:14px;">₹500</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">TSH</td>
+<td style="padding:14px;">₹300</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">Vitamin D</td>
+<td style="padding:14px;">₹1200</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">Dengue Test</td>
+<td style="padding:14px;">₹600</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">Malaria Test</td>
+<td style="padding:14px;">₹300</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">Urine Culture</td>
+<td style="padding:14px;">₹500</td>
+</tr>
+
+<tr class="testRow">
+<td style="padding:14px;">Blood Culture</td>
+<td style="padding:14px;">₹1200</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
 
 </div>
 <div class="card tilt">
@@ -1357,6 +1479,35 @@ element.style.transform =
 });
 
 });
+  function searchTests(){
+
+const input =
+document.getElementById('searchInput');
+
+const filter =
+input.value.toUpperCase();
+
+const rows =
+document.querySelectorAll('.testRow');
+
+rows.forEach((row)=>{
+
+const text =
+row.innerText.toUpperCase();
+
+if(text.includes(filter)){
+
+row.style.display = '';
+
+}else{
+
+row.style.display = 'none';
+
+}
+
+});
+
+}
 </script>
 
 </body>
