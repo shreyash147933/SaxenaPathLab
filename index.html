@@ -548,11 +548,17 @@ Trusted pathology services with accurate reports and modern healthcare support.
 
 </div>
 
-<div class="card">
+<div class="card" onclick="openReports()" style="cursor:pointer;">
 
 <h3>Digital Reports</h3>
 
-<p>Fast and secure online reports.</p>
+<p>
+Click to download your pathology reports online.
+</p>
+
+<br>
+
+<a class="btn">Open Reports</a>
 
 </div>
 
@@ -603,19 +609,7 @@ Saxena Path Lab provides reliable diagnostic services using advanced technology.
 
 </section>
 
-<section id="reports">
 
-<h2 class="section-title">Download Reports</h2>
-
-<div class="report-box">
-
-<input type="text" placeholder="Enter Report ID">
-
-<button class="btn">Download Report</button>
-
-</div>
-
-</section>
 
 <section id="appointment">
 
@@ -818,7 +812,36 @@ Hello 👋 How can I help you today?
 </div>
 
 </div>
+<div class="popup-overlay" id="reportsPopup">
 
+<div class="popup-content">
+
+<span class="popup-close" onclick="closeReports()">×</span>
+
+<h2>Download Reports</h2>
+
+<div class="report-box">
+
+<input
+type="text"
+id="reportId"
+placeholder="Enter Report ID">
+
+<button
+class="btn"
+onclick="downloadReport()">
+
+Download Report
+
+</button>
+
+<p id="reportMessage"></p>
+
+</div>
+
+</div>
+
+</div>
 <footer>
 © 2026 Saxena Path Lab | All Rights Reserved
 </footer>
@@ -840,7 +863,17 @@ document.getElementById('packagePopup').style.display='flex';
 function closePackages(){
 document.getElementById('packagePopup').style.display='none';
 }
+function openReports(){
 
+document.getElementById('reportsPopup').style.display = 'flex';
+
+}
+
+function closeReports(){
+
+document.getElementById('reportsPopup').style.display = 'none';
+
+}
 function searchTests(){
 
 const input=document.getElementById('searchInput');
