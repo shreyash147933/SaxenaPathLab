@@ -367,7 +367,67 @@ align-items:center;
 justify-content:center;
 font-size:30px;
 }
+.popup-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.75);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:100000;
+padding:20px;
+}
 
+.popup-content{
+width:100%;
+max-width:950px;
+max-height:90vh;
+overflow-y:auto;
+background:#0f172a;
+padding:40px;
+border-radius:28px;
+border:1px solid rgba(212,175,55,0.25);
+}
+
+.popup-content h2{
+color:#d4af37;
+margin-bottom:25px;
+text-align:center;
+}
+
+.popup-close{
+float:right;
+font-size:30px;
+cursor:pointer;
+color:#d4af37;
+}
+
+.popup-table{
+width:100%;
+border-collapse:collapse;
+margin-top:25px;
+}
+
+.popup-table th,
+.popup-table td{
+padding:16px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+text-align:left;
+}
+
+.popup-table th{
+color:#d4af37;
+}
+
+.package-card{
+background:rgba(255,255,255,0.06);
+padding:25px;
+border-radius:22px;
+margin-bottom:20px;
+}
 footer{
 background:#020617;
 color:#94a3b8;
@@ -743,151 +803,17 @@ Trusted pathology services with accurate reports, modern equipment, and compassi
 <section id="services" class="reveal">
 <h2 class="section-title">Our Services</h2>
 <div class="cards">
-<div class="card tilt">
+<div class="card tilt" onclick="openBloodTests()" style="cursor:pointer;">
+
 <h3>Blood Testing</h3>
 
-<p>We provide advanced and accurate blood investigations including:</p>
+<p>
+Click to explore all pathology tests and pricing.
+</p>
 
 <br>
 
-<ul style="line-height:2; padding-left:20px;">
-
-<li>Complete Blood Count (CBC)</li>
-
-<li>Blood Sugar Test</li>
-
-<li>HbA1c Test</li>
-
-<li>Liver Function Test (LFT)</li>
-
-<li>Kidney Function Test (KFT)</li>
-
-<li>Thyroid Profile (T3, T4, TSH)</li>
-
-<li>Lipid Profile</li>
-
-<li>Vitamin D & B12 Tests</li>
-
-<li>Dengue & Malaria Testing</li>
-
-</ul>
-  <section id="rates" class="reveal">
-
-<h2 class="section-title">
-Test & Rate List 2024-25
-</h2>
-
-<div class="report-box">
-
-<input
-type="text"
-id="searchInput"
-placeholder="Search Test Name..."
-onkeyup="searchTests()">
-
-<table
-style="
-width:100%;
-margin-top:30px;
-border-collapse:collapse;
-">
-
-<tr style="
-color:#d4af37;
-font-size:18px;
-">
-
-<th style="padding:16px; text-align:left;">
-Test Name
-</th>
-
-<th style="padding:16px; text-align:left;">
-Price
-</th>
-
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">CBC</td>
-<td style="padding:14px;">₹300</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">HB</td>
-<td style="padding:14px;">₹100</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">TLC / DLC</td>
-<td style="padding:14px;">₹200</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">Platelets</td>
-<td style="padding:14px;">₹200</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">Blood Group</td>
-<td style="padding:14px;">₹50</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">HbA1c</td>
-<td style="padding:14px;">₹550</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">Lipid Profile</td>
-<td style="padding:14px;">₹550</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">Liver Function Test (LFT)</td>
-<td style="padding:14px;">₹650</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">Kidney Function Test (KFT)</td>
-<td style="padding:14px;">₹650</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">Thyroid Profile (TFT)</td>
-<td style="padding:14px;">₹500</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">TSH</td>
-<td style="padding:14px;">₹300</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">Vitamin D</td>
-<td style="padding:14px;">₹1200</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">Dengue Test</td>
-<td style="padding:14px;">₹600</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">Malaria Test</td>
-<td style="padding:14px;">₹300</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">Urine Culture</td>
-<td style="padding:14px;">₹500</td>
-</tr>
-
-<tr class="testRow">
-<td style="padding:14px;">Blood Culture</td>
-<td style="padding:14px;">₹1200</td>
-</tr>
-
-</table>
+<a class="btn">View Tests</a>
 
 </div>
 
@@ -896,31 +822,17 @@ Price
 </div>
 <div class="card tilt">
 
+<div class="card tilt" onclick="openPackages()" style="cursor:pointer;">
+
 <h3>Health Packages</h3>
 
-<p>Affordable preventive and complete healthcare packages:</p>
+<p>
+Click to view complete health packages and rates.
+</p>
 
 <br>
 
-<ul style="line-height:2; padding-left:20px;">
-
-<li>Basic Health Checkup</li>
-
-<li>Full Body Checkup</li>
-
-<li>Diabetes Care Package</li>
-
-<li>Senior Citizen Package</li>
-
-<li>Women's Wellness Package</li>
-
-<li>Heart Care Package</li>
-
-<li>Thyroid Care Package</li>
-
-<li>Executive Health Package</li>
-
-</ul>
+<a class="btn">View Packages</a>
 
 </div>
 <div class="card tilt">
@@ -1146,7 +1058,73 @@ Patient Testimonials
 </div>
 
 </section>
+<div class="popup-overlay" id="bloodPopup">
 
+<div class="popup-content">
+
+<span class="popup-close" onclick="closeBloodTests()">×</span>
+
+<h2>Blood Test Rate List</h2>
+
+<table class="popup-table">
+
+<tr>
+<th>Test Name</th>
+<th>Rate</th>
+</tr>
+
+<tr>
+<td>CBC</td>
+<td>₹300</td>
+</tr>
+
+<tr>
+<td>Blood Sugar</td>
+<td>₹100</td>
+</tr>
+
+<tr>
+<td>HbA1c</td>
+<td>₹550</td>
+</tr>
+
+<tr>
+<td>Lipid Profile</td>
+<td>₹550</td>
+</tr>
+
+<tr>
+<td>Thyroid Profile</td>
+<td>₹500</td>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+<div class="popup-overlay" id="packagePopup">
+
+<div class="popup-content">
+
+<span class="popup-close" onclick="closePackages()">×</span>
+
+<h2>Health Packages</h2>
+
+<div class="package-card">
+<h3>Basic Health Package — ₹799</h3>
+<p>CBC, Sugar, Urine Test</p>
+</div>
+
+<div class="package-card">
+<h3>Full Body Checkup — ₹1999</h3>
+<p>CBC, LFT, KFT, Lipid, Thyroid</p>
+</div>
+
+</div>
+
+</div>
 <footer>
 <p>© 2026 Saxena Path Lab | All Rights Reserved</p>
 </footer>
@@ -1506,6 +1484,29 @@ row.style.display = 'none';
 }
 
 });
+
+}
+  function openBloodTests(){
+
+document.getElementById('bloodPopup').style.display = 'flex';
+
+}
+
+function closeBloodTests(){
+
+document.getElementById('bloodPopup').style.display = 'none';
+
+}
+
+function openPackages(){
+
+document.getElementById('packagePopup').style.display = 'flex';
+
+}
+
+function closePackages(){
+
+document.getElementById('packagePopup').style.display = 'none';
 
 }
 </script>
