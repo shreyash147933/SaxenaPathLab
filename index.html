@@ -923,109 +923,451 @@ Download Report
 
 <script>
 
-function openBloodTests(){
-document.getElementById('bloodPopup').style.display='flex';
-}
+/* ---------------- REVEAL ANIMATION ---------------- */
 
-function closeBloodTests(){
-document.getElementById('bloodPopup').style.display='none';
-}
+window.addEventListener('scroll', reveal);
 
-function openPackages(){
-document.getElementById('packagePopup').style.display='flex';
-}
+function reveal(){
 
-function closePackages(){
-document.getElementById('packagePopup').style.display='none';
-}
-function openReports(){
+const reveals = document.querySelectorAll('.reveal');
 
-document.getElementById('reportsPopup').style.display = 'flex';
+reveals.forEach((element)=>{
 
-}
+const windowHeight = window.innerHeight;
+const revealTop = element.getBoundingClientRect().top;
+const revealPoint = 120;
 
-function closeReports(){
+if(revealTop < windowHeight - revealPoint){
 
-document.getElementById('reportsPopup').style.display = 'none';
+element.classList.add('active');
 
-}
-function searchTests(){
-
-const input=document.getElementById('searchInput');
-const filter=input.value.toUpperCase();
-
-const rows=document.querySelectorAll('.testRow');
-
-rows.forEach((row)=>{
-
-const text=row.innerText.toUpperCase();
-
-if(text.includes(filter)){
-row.style.display='';
-}else{
-row.style.display='none';
 }
 
 });
 
 }
 
-const themeToggle=document.getElementById('themeToggle');
+reveal();
+
+/* ---------------- PARTICLES ---------------- */
+
+const particlesContainer = document.getElementById('particles');
+
+for(let i = 0; i < 45; i++){
+
+const particle = document.createElement('div');
+
+particle.classList.add('particle');
+
+const size = Math.random() * 8 + 2;
+
+particle.style.width = size + 'px';
+particle.style.height = size + 'px';
+
+particle.style.left = Math.random() * 100 + 'vw';
+
+particle.style.animationDuration =
+(Math.random() * 10 + 12) + 's';
+
+particle.style.animationDelay =
+Math.random() * 10 + 's';
+
+particlesContainer.appendChild(particle);
+
+}
+
+/* ---------------- COUNTERS ---------------- */
+
+const counters = document.querySelectorAll('.counter');
+
+counters.forEach(counter => {
+
+counter.innerText = '0';
+
+const updateCounter = () => {
+
+const target =
++counter.getAttribute('data-target');
+
+const current =
++counter.innerText;
+
+const increment = target / 120;
+
+if(current < target){
+
+counter.innerText =
+`${Math.ceil(current + increment)}`;
+
+setTimeout(updateCounter, 20);
+
+}else{
+
+counter.innerText = target;
+
+}
+
+};
+
+updateCounter();
+
+});
+
+/* ---------------- CURSOR GLOW ---------------- */
+
+const glow =
+document.getElementById('cursor-glow');
+
+document.addEventListener('mousemove',(e)=>{
+
+glow.style.left = e.clientX + 'px';
+glow.style.top = e.clientY + 'px';
+
+});
+
+/* ---------------- THEME TOGGLE ---------------- */
+
+const themeToggle =
+document.getElementById('themeToggle');
 
 themeToggle.addEventListener('click',()=>{
 
 document.body.classList.toggle('light-mode');
 
 if(document.body.classList.contains('light-mode')){
-themeToggle.innerHTML='☀️';
+
+themeToggle.innerHTML = '☀️';
+
 }else{
-themeToggle.innerHTML='🌙';
+
+themeToggle.innerHTML = '🌙';
+
 }
 
 });
 
+/* ---------------- REPORT DOWNLOAD ---------------- */
+
+function downloadReport(){
+
+const reportId =
+document.getElementById('reportId').value;
+
+const message =
+document.getElementById('reportMessage');
+
+if(reportId === "SAX123"){
+
+window.open(
+'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
+'_blank'
+);
+
+message.innerText = '';
+
+}else{
+
+message.innerText =
+'Invalid Report ID';
+
+}
+
+}
+
+/* ---------------- CHATBOT ---------------- */
+
 function toggleChatbot(){
 
-const chatbot=document.getElementById('chatbotBox');
+const chatbot =
+document.getElementById('chatbotBox');
 
-if(chatbot.style.display==='flex'){
-chatbot.style.display='none';
+if(chatbot.style.display === 'flex'){
+
+chatbot.style.opacity = '0';
+
+setTimeout(()=>{
+
+chatbot.style.display = 'none';
+
+},300);
+
 }else{
-chatbot.style.display='flex';
+
+chatbot.style.display = 'flex';
+
+setTimeout(()=>{
+
+chatbot.style.opacity = '1';
+
+},50);
+
 }
 
 }
 
 function sendMessage(){
 
-const input=document.getElementById('userInput');
+const input =
+document.getElementById('userInput');
 
-const messages=document.getElementById('chatMessages');
+const messages =
+document.getElementById('chatMessages');
 
-if(input.value.trim()==='') return;
+const userText =
+input.value.toLowerCase();
 
-const userMessage=document.createElement('div');
+if(input.value.trim() === '') return;
 
-userMessage.className='user-message';
+/* USER MESSAGE */
 
-userMessage.innerText=input.value;
+const userMessage =
+document.createElement('div');
+
+userMessage.className = 'user-message';
+
+userMessage.innerText = input.value;
 
 messages.appendChild(userMessage);
 
-const botMessage=document.createElement('div');
+/* BOT REPLY */
 
-botMessage.className='bot-message';
+let botReply =
+'Please contact our lab for detailed guidance.';
 
-botMessage.innerText='Please contact our lab for detailed medical guidance.';
+if(userText.includes('fever')){
 
-setTimeout(()=>{
-messages.appendChild(botMessage);
-messages.scrollTop=messages.scrollHeight;
-},500);
-
-input.value='';
+botReply =
+'You may consider CBC, Dengue or Malaria testing.';
 
 }
+else if(userText.includes('diabetes')){
+
+botReply =
+'HbA1c and Blood Sugar tests are recommended.';
+
+}
+else if(userText.includes('thyroid')){
+
+botReply =
+'Thyroid Profile testing may help.';
+
+}
+else if(userText.includes('weakness')){
+
+botReply =
+'Vitamin D, CBC or Iron studies could help.';
+
+}
+else if(userText.includes('package')){
+
+botReply =
+'We offer Basic, Diabetes and Full Body Health Packages.';
+
+}
+else if(userText.includes('report')){
+
+botReply =
+'You can download reports from the Digital Reports section.';
+
+}
+
+/* TYPING EFFECT */
+
+const typing =
+document.createElement('div');
+
+typing.className = 'bot-message';
+
+typing.innerText = 'Typing...';
+
+messages.appendChild(typing);
+
+messages.scrollTop =
+messages.scrollHeight;
+
+setTimeout(()=>{
+
+typing.remove();
+
+const botMessage =
+document.createElement('div');
+
+botMessage.className = 'bot-message';
+
+botMessage.innerText = botReply;
+
+messages.appendChild(botMessage);
+
+messages.scrollTop =
+messages.scrollHeight;
+
+},1000);
+
+input.value = '';
+
+}
+
+/* ---------------- TESTIMONIAL SLIDER ---------------- */
+
+const slider =
+document.querySelector('.testimonial-slider');
+
+let scrollAmount = 0;
+
+setInterval(()=>{
+
+if(slider){
+
+scrollAmount += 350;
+
+if(scrollAmount >= slider.scrollWidth){
+
+scrollAmount = 0;
+
+}
+
+slider.scrollTo({
+
+left:scrollAmount,
+behavior:'smooth'
+
+});
+
+}
+
+},3500);
+
+/* ---------------- POPUPS ---------------- */
+
+function openBloodTests(){
+
+const popup =
+document.getElementById('bloodPopup');
+
+popup.style.display = 'flex';
+
+setTimeout(()=>{
+
+popup.style.opacity = '1';
+
+},50);
+
+}
+
+function closeBloodTests(){
+
+const popup =
+document.getElementById('bloodPopup');
+
+popup.style.opacity = '0';
+
+setTimeout(()=>{
+
+popup.style.display = 'none';
+
+},300);
+
+}
+
+function openPackages(){
+
+const popup =
+document.getElementById('packagePopup');
+
+popup.style.display = 'flex';
+
+setTimeout(()=>{
+
+popup.style.opacity = '1';
+
+},50);
+
+}
+
+function closePackages(){
+
+const popup =
+document.getElementById('packagePopup');
+
+popup.style.opacity = '0';
+
+setTimeout(()=>{
+
+popup.style.display = 'none';
+
+},300);
+
+}
+
+function openReports(){
+
+const popup =
+document.getElementById('reportPopup');
+
+popup.style.display = 'flex';
+
+setTimeout(()=>{
+
+popup.style.opacity = '1';
+
+},50);
+
+}
+
+function closeReports(){
+
+const popup =
+document.getElementById('reportPopup');
+
+popup.style.opacity = '0';
+
+setTimeout(()=>{
+
+popup.style.display = 'none';
+
+},300);
+
+}
+
+/* ---------------- FLOATING CARD EFFECT ---------------- */
+
+const cards =
+document.querySelectorAll('.card');
+
+cards.forEach((card,index)=>{
+
+card.style.animation =
+`floatCard 4s ease-in-out infinite`;
+
+card.style.animationDelay =
+`${index * 0.3}s`;
+
+});
+
+/* ---------------- ENTER KEY SUPPORT ---------------- */
+
+document.getElementById('userInput')
+.addEventListener('keypress',(e)=>{
+
+if(e.key === 'Enter'){
+
+sendMessage();
+
+}
+
+});
+
+/* ---------------- AUTO CLOSE LOADER ---------------- */
+
+window.addEventListener('load',()=>{
+
+setTimeout(()=>{
+
+document.getElementById('loader').style.display = 'none';
+
+},3000);
+
+});
 
 </script>
 
