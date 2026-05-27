@@ -468,7 +468,201 @@ font-size:42px;
 }
 
 }
+/* PREMIUM ANIMATIONS */
 
+.card,
+.stat,
+.package-card,
+.popup-content,
+.btn,
+.whatsapp-btn,
+.floating-bar a,
+.chatbot-toggle{
+transition:
+all 0.35s ease;
+}
+
+/* Card Hover */
+
+.card:hover,
+.package-card:hover,
+.stat:hover{
+transform:translateY(-10px);
+box-shadow:
+0 15px 40px rgba(0,0,0,0.35),
+0 0 25px rgba(212,175,55,0.25);
+}
+
+/* Button Hover */
+
+.btn:hover{
+transform:translateY(-4px) scale(1.03);
+}
+
+/* Floating Icons */
+
+.floating-bar a:hover,
+.whatsapp-btn:hover{
+transform:scale(1.12);
+box-shadow:0 0 25px rgba(212,175,55,0.5);
+}
+
+/* Hero Animation */
+
+.hero-content{
+animation:heroFade 1.5s ease;
+}
+
+@keyframes heroFade{
+
+0%{
+opacity:0;
+transform:translateY(40px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* Section Fade Animation */
+
+.reveal{
+opacity:0;
+transform:translateY(80px);
+transition:1s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* Popup Animation */
+
+.popup-content{
+animation:popupZoom 0.35s ease;
+}
+
+@keyframes popupZoom{
+
+0%{
+transform:scale(0.8);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
+}
+
+/* Smooth Testimonial Scroll */
+
+.testimonial{
+transition:0.5s ease;
+}
+
+/* Glow Effect */
+
+.card::before,
+.package-card::before{
+content:'';
+position:absolute;
+inset:0;
+border-radius:24px;
+padding:1px;
+background:linear-gradient(
+135deg,
+transparent,
+rgba(212,175,55,0.25),
+transparent
+);
+-webkit-mask:
+linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+
+-webkit-mask-composite:xor;
+mask-composite:exclude;
+pointer-events:none;
+}
+
+/* Floating Animation */
+
+.whatsapp-btn,
+.chatbot-toggle{
+animation:floatBtn 3s ease-in-out infinite;
+}
+
+@keyframes floatBtn{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
+}
+
+/* Premium Scrollbar */
+
+::-webkit-scrollbar{
+width:10px;
+}
+
+::-webkit-scrollbar-track{
+background:#020617;
+}
+
+::-webkit-scrollbar-thumb{
+background:#d4af37;
+border-radius:20px;
+}
+
+/* Glass Effect */
+
+.popup-content,
+.card,
+.package-card,
+.report-box,
+.appointment-box{
+backdrop-filter:blur(18px);
+}
+
+/* Mobile Improvements */
+
+@media(max-width:768px){
+
+.popup-content{
+padding:25px;
+}
+
+.hero-content h1{
+font-size:34px;
+}
+
+.hero-content p{
+font-size:16px;
+}
+
+.section-title{
+font-size:30px;
+}
+
+.card{
+padding:25px;
+}
+
+}
 </style>
 </head>
 
