@@ -682,6 +682,13 @@ padding:25px;
 <a href="#services">Services</a>
 <a href="#about">About</a>
 <a href="#reports">Reports</a>
+<a href="#rates">Rate List</a>
+
+<a href="#"
+onclick="openAdmin()">
+Admin
+</a>
+
 <a href="#appointment">Appointment</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -811,7 +818,7 @@ Saxena Path Lab provides reliable diagnostic services using advanced technology.
 
 <div class="appointment-box">
 
-<form action="https://formsubmit.co/saxenapathlab2000@gmail.com" method="POST">
+<form onsubmit="sendWhatsAppBooking(event)">
 
 <input type="hidden" name="_captcha" value="false">
 
@@ -1492,7 +1499,39 @@ popup.style.display = 'none';
 },300);
 
 }
+function sendWhatsAppBooking(event){
 
+event.preventDefault();
+
+const name =
+document.querySelector('input[name="Full Name"]').value;
+
+const phone =
+document.querySelector('input[name="Phone Number"]').value;
+
+const test =
+document.querySelector('select[name="Selected Test"]').value;
+
+const date =
+document.querySelector('input[name="Appointment Date"]').value;
+
+const notes =
+document.querySelector('textarea[name="Additional Notes"]').value;
+
+const message =
+`*New Appointment Booking*%0A%0A
+👤 Name: ${name}%0A
+📞 Phone: ${phone}%0A
+🧪 Test: ${test}%0A
+📅 Date: ${date}%0A
+📝 Notes: ${notes}`;
+
+window.open(
+`https://wa.me/918485808399?text=${message}`,
+'_blank'
+);
+
+}
 function openReports(){
 
 const popup =
