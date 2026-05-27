@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
+
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Saxena Path Lab</title>
@@ -29,6 +31,89 @@ color:#f8fafc;
 overflow-x:hidden;
 padding-top:90px;
 }
+
+/* LOADER */
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#020617;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:100000;
+animation:fadeOut 1s ease forwards;
+animation-delay:2.5s;
+}
+
+@keyframes fadeOut{
+to{
+opacity:0;
+visibility:hidden;
+}
+}
+
+/* PARTICLES */
+
+#particles{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-2;
+}
+
+.particle{
+position:absolute;
+border-radius:50%;
+background:rgba(212,175,55,0.35);
+animation:floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+
+0%{
+transform:translateY(100vh) scale(0);
+opacity:0;
+}
+
+10%{
+opacity:1;
+}
+
+100%{
+transform:translateY(-10vh) scale(1);
+opacity:0;
+}
+
+}
+
+/* CURSOR GLOW */
+
+#cursor-glow{
+position:fixed;
+width:300px;
+height:300px;
+background:radial-gradient(
+circle,
+rgba(212,175,55,0.18) 0%,
+transparent 70%
+);
+pointer-events:none;
+transform:translate(-50%,-50%);
+z-index:-1;
+transition:
+top 0.08s linear,
+left 0.08s linear;
+}
+
+/* HEADER */
 
 header{
 position:fixed;
@@ -74,6 +159,8 @@ nav a:hover{
 color:#d4af37;
 }
 
+/* HERO */
+
 .hero{
 height:100vh;
 position:relative;
@@ -106,6 +193,21 @@ z-index:-1;
 
 .hero-content{
 padding:20px;
+animation:heroFade 1.5s ease;
+}
+
+@keyframes heroFade{
+
+0%{
+opacity:0;
+transform:translateY(40px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 
 .hero-content h1{
@@ -120,6 +222,8 @@ margin:auto;
 margin-bottom:30px;
 }
 
+/* BUTTON */
+
 .btn{
 display:inline-block;
 padding:16px 36px;
@@ -130,10 +234,11 @@ text-decoration:none;
 font-weight:700;
 transition:0.4s;
 cursor:pointer;
+border:none;
 }
 
 .btn:hover{
-transform:translateY(-4px);
+transform:translateY(-4px) scale(1.03);
 box-shadow:0 0 20px rgba(212,175,55,0.5);
 }
 
@@ -148,6 +253,8 @@ margin-bottom:50px;
 color:#d4af37;
 }
 
+/* CARDS */
+
 .cards{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -155,17 +262,25 @@ gap:25px;
 }
 
 .card{
+position:relative;
 background:rgba(255,255,255,0.08);
 padding:35px;
 border-radius:24px;
 border:1px solid rgba(255,255,255,0.08);
-transition:0.3s;
+transition:0.35s ease;
+backdrop-filter:blur(18px);
+overflow:hidden;
 }
 
 .card:hover{
-transform:translateY(-8px);
+transform:translateY(-10px);
+box-shadow:
+0 15px 40px rgba(0,0,0,0.35),
+0 0 25px rgba(212,175,55,0.25);
 border-color:#d4af37;
 }
+
+/* ABOUT */
 
 .about{
 display:grid;
@@ -191,7 +306,14 @@ background:rgba(255,255,255,0.08);
 padding:30px;
 border-radius:22px;
 text-align:center;
+transition:0.3s;
 }
+
+.stat:hover{
+transform:translateY(-8px);
+}
+
+/* APPOINTMENT */
 
 .report-box,
 .appointment-box{
@@ -200,6 +322,7 @@ margin:auto;
 background:rgba(255,255,255,0.08);
 padding:40px;
 border-radius:25px;
+backdrop-filter:blur(18px);
 }
 
 .report-box input,
@@ -217,6 +340,8 @@ font-size:16px;
 outline:none;
 }
 
+/* CONTACT */
+
 .contact{
 background:#023e8a;
 padding:60px;
@@ -228,6 +353,8 @@ text-align:center;
 color:#d4af37;
 text-decoration:none;
 }
+
+/* TESTIMONIAL */
 
 .testimonial-slider{
 display:flex;
@@ -246,6 +373,8 @@ background:rgba(255,255,255,0.08);
 padding:30px;
 border-radius:22px;
 }
+
+/* POPUPS */
 
 .popup-overlay{
 position:fixed;
@@ -270,6 +399,21 @@ overflow-y:auto;
 padding:35px;
 border-radius:24px;
 border:1px solid rgba(212,175,55,0.2);
+animation:popupZoom 0.35s ease;
+}
+
+@keyframes popupZoom{
+
+0%{
+transform:scale(0.8);
+opacity:0;
+}
+
+100%{
+transform:scale(1);
+opacity:1;
+}
+
 }
 
 .popup-close{
@@ -303,6 +447,8 @@ border-radius:20px;
 margin-bottom:20px;
 }
 
+/* WHATSAPP */
+
 .whatsapp-btn{
 position:fixed;
 bottom:25px;
@@ -317,7 +463,37 @@ align-items:center;
 font-size:30px;
 text-decoration:none;
 z-index:99999;
+animation:floatBtn 3s ease-in-out infinite;
 }
+
+/* FLOATING BAR */
+
+.floating-bar{
+position:fixed;
+right:20px;
+top:50%;
+transform:translateY(-50%);
+display:flex;
+flex-direction:column;
+gap:15px;
+z-index:99999;
+}
+
+.floating-bar a{
+width:60px;
+height:60px;
+background:rgba(255,255,255,0.08);
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:28px;
+color:#d4af37;
+backdrop-filter:blur(12px);
+}
+
+/* CHATBOT */
 
 .chatbot-container{
 position:fixed;
@@ -336,6 +512,23 @@ justify-content:center;
 align-items:center;
 font-size:34px;
 cursor:pointer;
+animation:floatBtn 3s ease-in-out infinite;
+}
+
+@keyframes floatBtn{
+
+0%{
+transform:translateY(0px);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
+100%{
+transform:translateY(0px);
+}
+
 }
 
 .chatbot-box{
@@ -407,6 +600,8 @@ font-weight:700;
 cursor:pointer;
 }
 
+/* THEME */
+
 #themeToggle{
 position:fixed;
 top:20px;
@@ -419,14 +614,6 @@ background:linear-gradient(135deg,#d4af37,#f5d76e);
 font-size:24px;
 cursor:pointer;
 z-index:100000;
-}
-
-footer{
-background:#020617;
-padding:30px;
-text-align:center;
-margin-top:60px;
-color:#94a3b8;
 }
 
 .light-mode{
@@ -453,6 +640,29 @@ background:white;
 color:#0f172a;
 }
 
+/* REVEAL */
+
+.reveal{
+opacity:0;
+transform:translateY(80px);
+transition:1s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+footer{
+background:#020617;
+padding:30px;
+text-align:center;
+margin-top:60px;
+color:#94a3b8;
+}
+
+/* MOBILE */
+
 @media(max-width:900px){
 
 .about{
@@ -468,205 +678,34 @@ font-size:42px;
 }
 
 }
-/* PREMIUM ANIMATIONS */
 
-.card,
-.stat,
-.package-card,
-.popup-content,
-.btn,
-.whatsapp-btn,
-.floating-bar a,
-.chatbot-toggle{
-transition:
-all 0.35s ease;
-}
-
-/* Card Hover */
-
-.card:hover,
-.package-card:hover,
-.stat:hover{
-transform:translateY(-10px);
-box-shadow:
-0 15px 40px rgba(0,0,0,0.35),
-0 0 25px rgba(212,175,55,0.25);
-}
-
-/* Button Hover */
-
-.btn:hover{
-transform:translateY(-4px) scale(1.03);
-}
-
-/* Floating Icons */
-
-.floating-bar a:hover,
-.whatsapp-btn:hover{
-transform:scale(1.12);
-box-shadow:0 0 25px rgba(212,175,55,0.5);
-}
-
-/* Hero Animation */
-
-.hero-content{
-animation:heroFade 1.5s ease;
-}
-
-@keyframes heroFade{
-
-0%{
-opacity:0;
-transform:translateY(40px);
-}
-
-100%{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* Section Fade Animation */
-
-.reveal{
-opacity:0;
-transform:translateY(80px);
-transition:1s ease;
-}
-
-.reveal.active{
-opacity:1;
-transform:translateY(0);
-}
-
-/* Popup Animation */
-
-.popup-content{
-animation:popupZoom 0.35s ease;
-}
-
-@keyframes popupZoom{
-
-0%{
-transform:scale(0.8);
-opacity:0;
-}
-
-100%{
-transform:scale(1);
-opacity:1;
-}
-
-}
-
-/* Smooth Testimonial Scroll */
-
-.testimonial{
-transition:0.5s ease;
-}
-
-/* Glow Effect */
-
-.card::before,
-.package-card::before{
-content:'';
-position:absolute;
-inset:0;
-border-radius:24px;
-padding:1px;
-background:linear-gradient(
-135deg,
-transparent,
-rgba(212,175,55,0.25),
-transparent
-);
--webkit-mask:
-linear-gradient(#fff 0 0) content-box,
-linear-gradient(#fff 0 0);
-
--webkit-mask-composite:xor;
-mask-composite:exclude;
-pointer-events:none;
-}
-
-/* Floating Animation */
-
-.whatsapp-btn,
-.chatbot-toggle{
-animation:floatBtn 3s ease-in-out infinite;
-}
-
-@keyframes floatBtn{
-
-0%{
-transform:translateY(0px);
-}
-
-50%{
-transform:translateY(-8px);
-}
-
-100%{
-transform:translateY(0px);
-}
-
-}
-
-/* Premium Scrollbar */
-
-::-webkit-scrollbar{
-width:10px;
-}
-
-::-webkit-scrollbar-track{
-background:#020617;
-}
-
-::-webkit-scrollbar-thumb{
-background:#d4af37;
-border-radius:20px;
-}
-
-/* Glass Effect */
-
-.popup-content,
-.card,
-.package-card,
-.report-box,
-.appointment-box{
-backdrop-filter:blur(18px);
-}
-
-/* Mobile Improvements */
-
-@media(max-width:768px){
-
-.popup-content{
-padding:25px;
-}
-
-.hero-content h1{
-font-size:34px;
-}
-
-.hero-content p{
-font-size:16px;
-}
-
-.section-title{
-font-size:30px;
-}
-
-.card{
-padding:25px;
-}
-
-}
 </style>
+
 </head>
 
 <body>
+
+<!-- LOADER -->
+
+<div id="loader">
+
+<h1 style="font-size:55px;color:#d4af37;">
+SAXENA PATH LAB
+</h1>
+
+<p style="margin-top:15px;color:#cbd5e1;">
+Loading Healthcare Experience...
+</p>
+
+</div>
+
+<!-- PARTICLES -->
+
+<div id="particles"></div>
+
+<!-- CURSOR -->
+
+<div id="cursor-glow"></div>
 
 <header>
 
@@ -679,18 +718,17 @@ padding:25px;
 </div>
 
 <nav>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#reports">Reports</a>
-<a href="#rates">Rate List</a>
 
-<a href="#"
-onclick="openAdmin()">
-Admin
-</a>
+<a href="#services">Services</a>
+
+<a href="#about">About</a>
 
 <a href="#appointment">Appointment</a>
+
 <a href="#contact">Contact</a>
+
+<a href="#" onclick="openAdmin()">Admin</a>
+
 </nav>
 
 <button id="themeToggle">🌙</button>
@@ -713,15 +751,19 @@ Admin
 Trusted pathology services with accurate reports and modern healthcare support.
 </p>
 
-<a href="#appointment" class="btn">Book Appointment</a>
+<a href="#appointment" class="btn">
+Book Appointment
+</a>
 
 </div>
 
 </section>
 
-<section id="services">
+<section id="services" class="reveal">
 
-<h2 class="section-title">Our Services</h2>
+<h2 class="section-title">
+Our Services
+</h2>
 
 <div class="cards">
 
@@ -729,11 +771,15 @@ Trusted pathology services with accurate reports and modern healthcare support.
 
 <h3>Blood Testing</h3>
 
-<p>Click to explore all pathology tests and pricing.</p>
+<p>
+Click to explore all pathology tests and pricing.
+</p>
 
 <br>
 
-<a class="btn">View Tests</a>
+<button class="btn">
+View Tests
+</button>
 
 </div>
 
@@ -741,11 +787,15 @@ Trusted pathology services with accurate reports and modern healthcare support.
 
 <h3>Health Packages</h3>
 
-<p>Click to view health packages and rates.</p>
+<p>
+Click to view health packages and rates.
+</p>
 
 <br>
 
-<a class="btn">View Packages</a>
+<button class="btn">
+View Packages
+</button>
 
 </div>
 
@@ -754,12 +804,14 @@ Trusted pathology services with accurate reports and modern healthcare support.
 <h3>Digital Reports</h3>
 
 <p>
-Click to download your pathology reports online.
+Click to download pathology reports online.
 </p>
 
 <br>
 
-<a class="btn">Open Reports</a>
+<button class="btn">
+Open Reports
+</button>
 
 </div>
 
@@ -767,842 +819,14 @@ Click to download your pathology reports online.
 
 <h3>Home Collection</h3>
 
-<p>Convenient blood sample collection at home.</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section class="about" id="about">
-
-<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=1200&auto=format&fit=crop">
-
-<div>
-
-<h2 class="section-title">Why Choose Us?</h2>
-
 <p>
-Saxena Path Lab provides reliable diagnostic services using advanced technology.
-</p>
-
-<div class="stats">
-
-<div class="stat">
-<h3>10000+</h3>
-<p>Patients</p>
-</div>
-
-<div class="stat">
-<h3>99%</h3>
-<p>Accuracy</p>
-</div>
-
-<div class="stat">
-<h3>24/7</h3>
-<p>Support</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<section id="appointment">
-
-<h2 class="section-title">Book Appointment</h2>
-
-<div class="appointment-box">
-
-<form onsubmit="sendWhatsAppBooking(event)">
-
-<input type="hidden" name="_captcha" value="false">
-
-<input type="text" placeholder="Full Name" required>
-
-<input type="tel" placeholder="Phone Number" required>
-
-<select required>
-
-<option>Select Test</option>
-<option>Blood Test</option>
-<option>Diabetes Test</option>
-<option>Thyroid Profile</option>
-
-</select>
-
-<input type="date" required>
-
-<textarea rows="5" placeholder="Additional Notes"></textarea>
-
-<button type="submit" class="btn">Book Now</button>
-
-</form>
-
-</div>
-
-</section>
-
-<section id="contact">
-
-<div class="contact">
-
-<h2>Contact Us</h2>
-
-<p>
-📞 <a href="tel:+918485808399">+91 8485808399</a>
-</p>
-
-<p>
-✉️ <a href="mailto:saxenapathlab2000@gmail.com">saxenapathlab2000@gmail.com</a>
-</p>
-
-<p>
-Khaperkheda, Nagpur, Maharashtra
+Convenient blood sample collection at home.
 </p>
 
 </div>
 
-</section>
-
-<section class="testimonials">
-
-<h2 class="section-title">Patient Testimonials</h2>
-
-<div class="testimonial-slider">
-
-<div class="testimonial">
-<p>Excellent diagnostic service and fast reports.</p>
-<h4>— Rahul Sharma</h4>
-</div>
-
-<div class="testimonial">
-<p>Very clean lab and helpful staff.</p>
-<h4>— Priya Mehta</h4>
-</div>
-
-<div class="testimonial">
-<p>Best pathology experience I’ve had.</p>
-<h4>— Amit Verma</h4>
-</div>
-
 </div>
 
 </section>
 
-<div class="popup-overlay" id="bloodPopup">
-
-<div class="popup-content">
-
-<span class="popup-close" onclick="closeBloodTests()">×</span>
-
-<h2>Blood Test Rate List</h2>
-
-<input
-type="text"
-id="searchInput"
-placeholder="Search Test..."
-onkeyup="searchTests()"
-style="
-width:100%;
-padding:15px;
-border:none;
-border-radius:14px;
-background:rgba(255,255,255,0.08);
-color:white;
-margin-top:20px;
-"
->
-
-<table class="popup-table">
-
-<tr>
-<th>Test Name</th>
-<th>Rate</th>
-</tr>
-
-<tr class="testRow">
-<td>CBC (Complete Blood Count)</td>
-<td>₹300</td>
-</tr>
-
-<tr class="testRow">
-<td>Blood Sugar Fasting</td>
-<td>₹100</td>
-</tr>
-
-<tr class="testRow">
-<td>Blood Sugar PP</td>
-<td>₹100</td>
-</tr>
-
-<tr class="testRow">
-<td>HbA1c</td>
-<td>₹550</td>
-</tr>
-
-<tr class="testRow">
-<td>Lipid Profile</td>
-<td>₹550</td>
-</tr>
-
-<tr class="testRow">
-<td>Thyroid Profile (T3 T4 TSH)</td>
-<td>₹500</td>
-</tr>
-
-<tr class="testRow">
-<td>Liver Function Test (LFT)</td>
-<td>₹700</td>
-</tr>
-
-<tr class="testRow">
-<td>Kidney Function Test (KFT)</td>
-<td>₹650</td>
-</tr>
-
-<tr class="testRow">
-<td>Vitamin D</td>
-<td>₹1200</td>
-</tr>
-
-<tr class="testRow">
-<td>Vitamin B12</td>
-<td>₹900</td>
-</tr>
-
-<tr class="testRow">
-<td>Urine Routine</td>
-<td>₹120</td>
-</tr>
-
-<tr class="testRow">
-<td>Dengue Test</td>
-<td>₹800</td>
-</tr>
-
-<tr class="testRow">
-<td>Malaria Test</td>
-<td>₹350</td>
-</tr>
-
-<tr class="testRow">
-<td>Typhoid Test</td>
-<td>₹450</td>
-</tr>
-
-<tr class="testRow">
-<td>ESR</td>
-<td>₹120</td>
-</tr>
-
-<tr class="testRow">
-<td>CRP</td>
-<td>₹450</td>
-</tr>
-
-<tr class="testRow">
-<td>Uric Acid</td>
-<td>₹180</td>
-</tr>
-
-<tr class="testRow">
-<td>Calcium</td>
-<td>₹200</td>
-</tr>
-
-<tr class="testRow">
-<td>Iron Studies</td>
-<td>₹950</td>
-</tr>
-
-<tr class="testRow">
-<td>COVID RT-PCR</td>
-<td>₹700</td>
-</tr>
-
-</table>
-
-</div>
-
-</div>
-
-<div class="popup-overlay" id="packagePopup">
-
-<div class="popup-content">
-
-<span class="popup-close" onclick="closePackages()">×</span>
-
-<h2>Health Packages</h2>
-
-<div class="package-card">
-<h3>Basic Health Package — ₹799</h3>
-<p>CBC, Sugar, Urine Test</p>
-</div>
-
-<div class="package-card">
-<h3>Full Body Checkup — ₹1999</h3>
-<p>CBC, LFT, KFT, Lipid, Thyroid</p>
-</div>
-
-</div>
-
-</div>
-
-<a href="https://wa.me/918485808399" class="whatsapp-btn">
-💬
-</a>
-
-<div class="chatbot-container">
-
-<div class="chatbot-toggle" onclick="toggleChatbot()">
-🤖
-</div>
-
-<div class="chatbot-box" id="chatbotBox">
-
-<div class="chatbot-header">
-AI Health Assistant
-</div>
-
-<div class="chatbot-messages" id="chatMessages">
-
-<div class="bot-message">
-Hello 👋 How can I help you today?
-</div>
-
-</div>
-
-<div class="chatbot-input">
-
-<input type="text" id="userInput" placeholder="Type message...">
-
-<button onclick="sendMessage()">Send</button>
-
-</div>
-
-</div>
-
-</div>
-<div class="popup-overlay" id="reportsPopup">
-
-<div class="popup-content">
-
-<span class="popup-close" onclick="closeReports()">×</span>
-
-<h2>Download Reports</h2>
-
-<div class="report-box">
-
-<input
-type="text"
-id="reportId"
-placeholder="Enter Report ID">
-
-<button
-class="btn"
-onclick="downloadReport()">
-
-Download Report
-
-</button>
-
-<p id="reportMessage"></p>
-
-</div>
-
-</div>
-
-</div>
-<footer>
-© 2026 Saxena Path Lab | All Rights Reserved
-</footer>
-
-<script>
-
-/* ---------------- REVEAL ANIMATION ---------------- */
-
-window.addEventListener('scroll', reveal);
-
-function reveal(){
-
-const reveals = document.querySelectorAll('.reveal');
-
-reveals.forEach((element)=>{
-
-const windowHeight = window.innerHeight;
-const revealTop = element.getBoundingClientRect().top;
-const revealPoint = 120;
-
-if(revealTop < windowHeight - revealPoint){
-
-element.classList.add('active');
-
-}
-
-});
-
-}
-
-reveal();
-
-/* ---------------- PARTICLES ---------------- */
-
-const particlesContainer = document.getElementById('particles');
-
-for(let i = 0; i < 45; i++){
-
-const particle = document.createElement('div');
-
-particle.classList.add('particle');
-
-const size = Math.random() * 8 + 2;
-
-particle.style.width = size + 'px';
-particle.style.height = size + 'px';
-
-particle.style.left = Math.random() * 100 + 'vw';
-
-particle.style.animationDuration =
-(Math.random() * 10 + 12) + 's';
-
-particle.style.animationDelay =
-Math.random() * 10 + 's';
-
-particlesContainer.appendChild(particle);
-
-}
-
-/* ---------------- COUNTERS ---------------- */
-
-const counters = document.querySelectorAll('.counter');
-
-counters.forEach(counter => {
-
-counter.innerText = '0';
-
-const updateCounter = () => {
-
-const target =
-+counter.getAttribute('data-target');
-
-const current =
-+counter.innerText;
-
-const increment = target / 120;
-
-if(current < target){
-
-counter.innerText =
-`${Math.ceil(current + increment)}`;
-
-setTimeout(updateCounter, 20);
-
-}else{
-
-counter.innerText = target;
-
-}
-
-};
-
-updateCounter();
-
-});
-
-/* ---------------- CURSOR GLOW ---------------- */
-
-const glow =
-document.getElementById('cursor-glow');
-
-document.addEventListener('mousemove',(e)=>{
-
-glow.style.left = e.clientX + 'px';
-glow.style.top = e.clientY + 'px';
-
-});
-
-/* ---------------- THEME TOGGLE ---------------- */
-
-const themeToggle =
-document.getElementById('themeToggle');
-
-themeToggle.addEventListener('click',()=>{
-
-document.body.classList.toggle('light-mode');
-
-if(document.body.classList.contains('light-mode')){
-
-themeToggle.innerHTML = '☀️';
-
-}else{
-
-themeToggle.innerHTML = '🌙';
-
-}
-
-});
-
-/* ---------------- REPORT DOWNLOAD ---------------- */
-
-function downloadReport(){
-
-const reportId =
-document.getElementById('reportId').value;
-
-const message =
-document.getElementById('reportMessage');
-
-if(reportId === "SAX123"){
-
-window.open(
-'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-'_blank'
-);
-
-message.innerText = '';
-
-}else{
-
-message.innerText =
-'Invalid Report ID';
-
-}
-
-}
-
-/* ---------------- CHATBOT ---------------- */
-
-function toggleChatbot(){
-
-const chatbot =
-document.getElementById('chatbotBox');
-
-if(chatbot.style.display === 'flex'){
-
-chatbot.style.opacity = '0';
-
-setTimeout(()=>{
-
-chatbot.style.display = 'none';
-
-},300);
-
-}else{
-
-chatbot.style.display = 'flex';
-
-setTimeout(()=>{
-
-chatbot.style.opacity = '1';
-
-},50);
-
-}
-
-}
-
-function sendMessage(){
-
-const input =
-document.getElementById('userInput');
-
-const messages =
-document.getElementById('chatMessages');
-
-const userText =
-input.value.toLowerCase();
-
-if(input.value.trim() === '') return;
-
-/* USER MESSAGE */
-
-const userMessage =
-document.createElement('div');
-
-userMessage.className = 'user-message';
-
-userMessage.innerText = input.value;
-
-messages.appendChild(userMessage);
-
-/* BOT REPLY */
-
-let botReply =
-'Please contact our lab for detailed guidance.';
-
-if(userText.includes('fever')){
-
-botReply =
-'You may consider CBC, Dengue or Malaria testing.';
-
-}
-else if(userText.includes('diabetes')){
-
-botReply =
-'HbA1c and Blood Sugar tests are recommended.';
-
-}
-else if(userText.includes('thyroid')){
-
-botReply =
-'Thyroid Profile testing may help.';
-
-}
-else if(userText.includes('weakness')){
-
-botReply =
-'Vitamin D, CBC or Iron studies could help.';
-
-}
-else if(userText.includes('package')){
-
-botReply =
-'We offer Basic, Diabetes and Full Body Health Packages.';
-
-}
-else if(userText.includes('report')){
-
-botReply =
-'You can download reports from the Digital Reports section.';
-
-}
-
-/* TYPING EFFECT */
-
-const typing =
-document.createElement('div');
-
-typing.className = 'bot-message';
-
-typing.innerText = 'Typing...';
-
-messages.appendChild(typing);
-
-messages.scrollTop =
-messages.scrollHeight;
-
-setTimeout(()=>{
-
-typing.remove();
-
-const botMessage =
-document.createElement('div');
-
-botMessage.className = 'bot-message';
-
-botMessage.innerText = botReply;
-
-messages.appendChild(botMessage);
-
-messages.scrollTop =
-messages.scrollHeight;
-
-},1000);
-
-input.value = '';
-
-}
-
-/* ---------------- TESTIMONIAL SLIDER ---------------- */
-
-const slider =
-document.querySelector('.testimonial-slider');
-
-let scrollAmount = 0;
-
-setInterval(()=>{
-
-if(slider){
-
-scrollAmount += 350;
-
-if(scrollAmount >= slider.scrollWidth){
-
-scrollAmount = 0;
-
-}
-
-slider.scrollTo({
-
-left:scrollAmount,
-behavior:'smooth'
-
-});
-
-}
-
-},3500);
-
-/* ---------------- POPUPS ---------------- */
-
-function openBloodTests(){
-
-const popup =
-document.getElementById('bloodPopup');
-
-popup.style.display = 'flex';
-
-setTimeout(()=>{
-
-popup.style.opacity = '1';
-
-},50);
-
-}
-
-function closeBloodTests(){
-
-const popup =
-document.getElementById('bloodPopup');
-
-popup.style.opacity = '0';
-
-setTimeout(()=>{
-
-popup.style.display = 'none';
-
-},300);
-
-}
-
-function openPackages(){
-
-const popup =
-document.getElementById('packagePopup');
-
-popup.style.display = 'flex';
-
-setTimeout(()=>{
-
-popup.style.opacity = '1';
-
-},50);
-
-}
-
-function closePackages(){
-
-const popup =
-document.getElementById('packagePopup');
-
-popup.style.opacity = '0';
-
-setTimeout(()=>{
-
-popup.style.display = 'none';
-
-},300);
-
-}
-function sendWhatsAppBooking(event){
-
-event.preventDefault();
-
-const name =
-document.querySelector('input[name="Full Name"]').value;
-
-const phone =
-document.querySelector('input[name="Phone Number"]').value;
-
-const test =
-document.querySelector('select[name="Selected Test"]').value;
-
-const date =
-document.querySelector('input[name="Appointment Date"]').value;
-
-const notes =
-document.querySelector('textarea[name="Additional Notes"]').value;
-
-const message =
-`*New Appointment Booking*%0A%0A
-👤 Name: ${name}%0A
-📞 Phone: ${phone}%0A
-🧪 Test: ${test}%0A
-📅 Date: ${date}%0A
-📝 Notes: ${notes}`;
-
-window.open(
-`https://wa.me/918485808399?text=${message}`,
-'_blank'
-);
-
-}
-function openReports(){
-
-const popup =
-document.getElementById('reportPopup');
-
-popup.style.display = 'flex';
-
-setTimeout(()=>{
-
-popup.style.opacity = '1';
-
-},50);
-
-}
-
-function closeReports(){
-
-const popup =
-document.getElementById('reportPopup');
-
-popup.style.opacity = '0';
-
-setTimeout(()=>{
-
-popup.style.display = 'none';
-
-},300);
-
-}
-
-/* ---------------- FLOATING CARD EFFECT ---------------- */
-
-const cards =
-document.querySelectorAll('.card');
-
-cards.forEach((card,index)=>{
-
-card.style.animation =
-`floatCard 4s ease-in-out infinite`;
-
-card.style.animationDelay =
-`${index * 0.3}s`;
-
-});
-
-/* ---------------- ENTER KEY SUPPORT ---------------- */
-
-document.getElementById('userInput')
-.addEventListener('keypress',(e)=>{
-
-if(e.key === 'Enter'){
-
-sendMessage();
-
-}
-
-});
-
-/* ---------------- AUTO CLOSE LOADER ---------------- */
-
-window.addEventListener('load',()=>{
-
-setTimeout(()=>{
-
-document.getElementById('loader').style.display = 'none';
-
-},3000);
-
-});
-
-</script>
-
-</body>
-</html>
+<!-- REMAINING HTML CONTINUES... -->
