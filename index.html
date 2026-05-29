@@ -341,6 +341,18 @@ font-size:16px;
 outline:none;
 }
 
+/* SELECT DROPDOWN FIX */
+
+.appointment-box select{
+background:rgba(255,255,255,0.08);
+color:white;
+}
+
+.appointment-box select option{
+background:white;
+color:black;
+}
+
 /* CONTACT */
 
 .contact{
@@ -348,11 +360,14 @@ background:#023e8a;
 padding:60px;
 border-radius:24px;
 text-align:center;
+overflow:hidden;
 }
 
 .contact a{
 color:#d4af37;
 text-decoration:none;
+word-break:break-word;
+overflow-wrap:break-word;
 }
 
 /* TESTIMONIAL */
@@ -662,17 +677,39 @@ margin-top:60px;
 color:#94a3b8;
 }
 
-/* MOBILE */
+/* MOBILE HEADER FIX */
 
-@media(max-width:900px){
-
-.about{
-grid-template-columns:1fr;
+header{
+padding:15px 4%;
 }
 
-nav{
-display:none;
+.logo{
+gap:8px;
+font-size:18px;
+max-width:75%;
+overflow:hidden;
 }
+
+.logo img{
+width:55px;
+height:55px;
+}
+
+.logo span{
+white-space:nowrap;
+overflow:hidden;
+text-overflow:ellipsis;
+}
+
+#themeToggle{
+width:50px;
+height:50px;
+font-size:22px;
+top:18px;
+right:12px;
+}
+
+/* HERO TEXT */
 
 .hero-content h1{
 font-size:42px;
@@ -690,8 +727,14 @@ font-size:42px;
 
 <div id="loader">
 
-<h1 style="font-size:55px;color:#d4af37;">
-SAXENA PATH LAB
+<h1 style="
+font-size:55px;
+color:#d4af37;
+text-align:center;
+line-height:1.2;
+padding:0 20px;
+">
+SAXENA<br>PATH LAB
 </h1>
 
 <p style="margin-top:15px;color:#cbd5e1;">
