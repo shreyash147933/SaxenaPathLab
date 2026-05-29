@@ -467,19 +467,20 @@ margin-bottom:20px;
 
 .whatsapp-btn{
 position:fixed;
-bottom:25px;
-right:25px;
-width:65px;
-height:65px;
+bottom:20px;
+right:18px;
+width:55px;
+height:55px;
 background:#25D366;
 border-radius:50%;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:30px;
+font-size:26px;
 text-decoration:none;
 z-index:99999;
 animation:floatBtn 3s ease-in-out infinite;
+box-shadow:0 6px 18px rgba(0,0,0,0.25);
 }
 
 /* FLOATING BAR */
@@ -513,14 +514,14 @@ backdrop-filter:blur(12px);
 
 .chatbot-container{
 position:fixed;
-bottom:25px;
-left:25px;
+bottom:20px;
+left:18px;
 z-index:99999;
 }
 
 .chatbot-toggle{
-width:70px;
-height:70px;
+width:55px;
+height:55px;
 background:linear-gradient(135deg,#d4af37,#f5d76e);
 border-radius:50%;
 display:flex;
@@ -716,7 +717,43 @@ font-size:42px;
 }
 
 }
+/* MOBILE FLOATING BUTTON FIX */
 
+@media(max-width:768px){
+
+.whatsapp-btn{
+bottom:90px;
+right:15px;
+}
+
+.chatbot-container{
+bottom:20px;
+left:15px;
+}
+
+.chatbot-toggle{
+width:55px;
+height:55px;
+font-size:28px;
+}
+
+.floating-bar{
+right:15px;
+gap:10px;
+}
+
+.floating-bar a{
+width:55px;
+height:55px;
+font-size:24px;
+}
+
+.btn{
+padding:14px 24px;
+font-size:15px;
+}
+
+}
 </style>
 
 </head>
