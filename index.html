@@ -688,7 +688,7 @@ color:#94a3b8;
 /* MOBILE HEADER FIX */
 
 header{
-padding:15px 4%;
+padding:12px 20px;
 }
 
 .logo{
@@ -819,6 +819,63 @@ nav{
     height:55px;
 }
 
+}.menu-toggle{
+display:none;
+font-size:30px;
+cursor:pointer;
+color:#d4af37;
+}
+
+/* MOBILE MENU */
+
+@media(max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+#themeToggle{
+position:static;
+}
+
+nav{
+display:none;
+position:absolute;
+top:80px;
+left:0;
+width:100%;
+background:#0f172a;
+flex-direction:column;
+padding:20px;
+text-align:center;
+}
+
+nav.active{
+display:flex;
+}
+
+nav a{
+margin:12px 0;
+font-size:18px;
+}
+
+.logo span{
+font-size:16px;
+}
+
+.logo img{
+width:45px;
+height:45px;
+}
+
+.hero-content h1{
+font-size:40px;
+}
+
+.hero-content p{
+font-size:16px;
+}
+
 }
 </style>
 
@@ -857,21 +914,23 @@ Loading Healthcare Experience...
 <header>
 
 <div class="logo">
-
-<img src="logo.png">
-
-<span>Saxena Path Lab</span>
-
+    <img src="logo.png">
+    <span>Saxena Path Lab</span>
 </div>
 
-<nav>
-<a href="#services">Services</a>
-<a href="#about">About</a>
-<a href="#appointment">Appointment</a>
-<a href="#contact">Contact</a>
-<a href="#" onclick="openAdmin()">Admin</a>
-<button id="themeToggle">🌙</button>
+<div class="menu-toggle" onclick="toggleMenu()">
+☰
+</div>
+
+<nav id="mobileMenu">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#appointment">Appointment</a>
+    <a href="#contact">Contact</a>
+    <a href="#" onclick="openAdmin()">Admin</a>
 </nav>
+
+<button id="themeToggle">🌙</button>
 
 </header>
 <div style="
@@ -1786,7 +1845,13 @@ window.open(
 );
 
 }
+function toggleMenu(){
 
+document
+.getElementById("mobileMenu")
+.classList.toggle("active");
+
+}
 </script>
 <a href="tel:+918485808399"
 style="
