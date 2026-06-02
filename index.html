@@ -502,7 +502,12 @@ text-align:left;
 .popup-table th{
 color:#d4af37;
 }
-
+    
+.popup-content{
+    max-height:80vh;
+    overflow-y:auto;
+}
+    
 .package-card{
 background:rgba(255,255,255,0.08);
 padding:25px;
@@ -1240,7 +1245,9 @@ background:rgba(255,255,255,0.08);
 color:white;
 margin-top:20px;
 ">
-
+    
+<table class="popup-table">
+    
 <tr>
     <th>Test Name</th>
     <th>Report Time</th>
@@ -1448,12 +1455,12 @@ margin-top:20px;
 <tr class="testRow">
     <td>Calcium</td>
     <td>Same Day</td>
-    <td>₹200</td></tr>
-<tr class="testRow">
+    <td>₹200</td>
+</tr>
 
-<td>Iron</td>
+<tr class="testRow">
+    <td>Iron</td>
     <td>1 Day</td>
-    
     <td>₹300</td>
 </tr>
 
@@ -1498,11 +1505,13 @@ margin-top:20px;
     <td>Same Day</td>
     <td>₹300</td>
 </tr>
+
 <tr class="testRow">
     <td>HBsAg</td>
     <td>Same Day</td>
     <td>₹200</td>
 </tr>
+
 <tr class="testRow">
     <td>VDRL</td>
     <td>Same Day</td>
@@ -1521,6 +1530,8 @@ margin-top:20px;
     <td>₹500</td>
 </tr>
 
+</table>
+    
 </div>
     
 </div>
