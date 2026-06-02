@@ -122,43 +122,85 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:18px 8%;
+height:75px;
+padding:0 15px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(15,23,42,0.7);
-backdrop-filter:blur(12px);
+background:rgba(15,23,42,.95);
+backdrop-filter:blur(10px);
 z-index:9999;
-border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
 .logo{
 display:flex;
 align-items:center;
-gap:12px;
-font-size:26px;
+gap:8px;
+}
+
+.logo img{
+width:50px;
+height:50px;
+border-radius:50%;
+border:2px solid #d4af37;
+}
+
+.logo span{
+font-size:16px;
 font-weight:700;
 color:#d4af37;
 }
 
-.logo img{
-width:60px;
-height:60px;
+.menu-toggle{
+display:none;
+font-size:30px;
+cursor:pointer;
+color:#d4af37;
+}
+
+#themeToggle{
+width:45px;
+height:45px;
+border:none;
 border-radius:50%;
-object-fit:cover;
-border:2px solid #d4af37;
+background:linear-gradient(135deg,#d4af37,#f5d76e);
+cursor:pointer;
+font-size:20px;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+.menu-toggle{
+display:block;
+}
+
+nav{
+display:none;
+position:absolute;
+top:75px;
+left:0;
+width:100%;
+background:#0f172a;
+flex-direction:column;
+padding:15px;
+text-align:center;
+}
+
+nav.active{
+display:flex;
 }
 
 nav a{
-margin-left:22px;
-text-decoration:none;
-color:white;
-font-weight:500;
-transition:0.3s;
+margin:10px 0;
+font-size:18px;
 }
 
-nav a:hover{
-color:#d4af37;
+.logo span{
+display:none;
+}
+
 }
 
 /* HERO */
@@ -913,24 +955,28 @@ Loading Healthcare Experience...
 
 <header>
 
-<div class="logo">
-    <img src="logo.png">
-    <span>Saxena Path Lab</span>
-</div>
+    <div class="logo">
+        <img src="logo.png">
+        <span>Saxena Path Lab</span>
+    </div>
 
-<div class="menu-toggle" onclick="toggleMenu()">
-☰
-</div>
+    <div style="display:flex;align-items:center;gap:12px;">
 
-<nav id="mobileMenu">
-    <a href="#services">Services</a>
-    <a href="#about">About</a>
-    <a href="#appointment">Appointment</a>
-    <a href="#contact">Contact</a>
-    <a href="#" onclick="openAdmin()">Admin</a>
-</nav>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            ☰
+        </div>
 
-<button id="themeToggle">🌙</button>
+        <button id="themeToggle">🌙</button>
+
+    </div>
+
+    <nav id="mobileMenu">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#appointment">Appointment</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Admin</a>
+    </nav>
 
 </header>
 <div style="
