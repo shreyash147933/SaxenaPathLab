@@ -1810,37 +1810,50 @@ input.value='';
 
 /* WHATSAPP BOOKING */
 
-function sendWhatsAppBooking(event){
+async function sendWhatsAppBooking(event){
 
 event.preventDefault();
 
-const name =
-document.getElementById('name').value;
+const data = {
+name: document.getElementById('name').value,
+phone: document.getElementById('phone').value,
+test: document.getElementById('test').value,
+date: document.getElementById('date').value,
+notes: document.getElementById('notes').value
+};
 
-const phone =
-document.getElementById('phone').value;
+try{
 
-const test =
-document.getElementById('test').value;
+await fetch(
+'https://script.google.com/macros/s/AKfycbyxx10bV8b8oSRZNC2EIUlgpN4B3fpkE_6LTBGjo3RmNcucYofJ2xV3OqFvGVKu1p9n/exec',
+{
+method:'POST',
+body:JSON.stringify(data)
+}
+);
 
-const date =
-document.getElementById('date').value;
-
-const notes =
-document.getElementById('notes').value;
+alert('Appointment Submitted Successfully!');
 
 const message =
 `*New Appointment Booking*%0A%0A
-👤 Name: ${name}%0A
-📞 Phone: ${phone}%0A
-🧪 Test: ${test}%0A
-📅 Date: ${date}%0A
-📝 Notes: ${notes}`;
+👤 Name: ${data.name}%0A
+📞 Phone: ${data.phone}%0A
+🧪 Test: ${data.test}%0A
+📅 Date: ${data.date}%0A
+📝 Notes: ${data.notes}`;
 
 window.open(
 `https://wa.me/918485808399?text=${message}`,
 '_blank'
 );
+
+document.querySelector("form").reset();
+
+}catch(error){
+
+alert("Booking Failed. Please try again.");
+
+}
 
 }
 function toggleMenu(){
