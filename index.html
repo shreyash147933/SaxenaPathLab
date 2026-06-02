@@ -727,104 +727,10 @@ margin-top:60px;
 color:#94a3b8;
 }
 
-/* MOBILE HEADER FIX */
-
-header{
-padding:12px 20px;
-}
-
-.logo{
-gap:8px;
-font-size:18px;
-max-width:75%;
-overflow:hidden;
-}
-
-.logo img{
-width:55px;
-height:55px;
-}
-
-.logo span{
-white-space:nowrap;
-overflow:hidden;
-text-overflow:ellipsis;
-}
-
-#themeToggle{
-width:50px;
-height:50px;
-font-size:22px;
-top:18px;
-right:12px;
-}
-
 /* HERO TEXT */
 
 .hero-content h1{
 font-size:42px;
-}
-
-}
-/* MOBILE FLOATING BUTTON FIX */
-
-@media(max-width:768px){
-
-.whatsapp-btn{
-bottom:90px;
-right:15px;
-}
-
-.chatbot-container{
-bottom:20px;
-left:15px;
-}
-
-.chatbot-toggle{
-width:55px;
-height:55px;
-font-size:28px;
-}
-
-.floating-bar{
-right:15px;
-gap:10px;
-}
-
-.floating-bar a{
-width:55px;
-height:55px;
-font-size:24px;
-}
-
-.btn{
-padding:14px 24px;
-font-size:15px;
-}
-
-@media(max-width:768px){
-
-header{
-    padding:12px 15px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo{
-    max-width:70%;
-    font-size:18px;
-}
-
-.logo img{
-    width:50px;
-    height:50px;
-}
-
-.logo span{
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
 }
 
 /* Hide menu on mobile */
@@ -834,12 +740,15 @@ nav{
 
 /* Theme button */
 #themeToggle{
-    position:static;
-    width:50px;
-    height:50px;
-    font-size:22px;
+width:45px;
+height:45px;
+border:none;
+border-radius:50%;
+background:linear-gradient(135deg,#d4af37,#f5d76e);
+font-size:20px;
+cursor:pointer;
 }
-
+    
 /* Hero section */
 .hero-content h1{
     font-size:48px;
@@ -867,8 +776,26 @@ font-size:30px;
 cursor:pointer;
 color:#d4af37;
 }
+    /* PHONE BUTTON */
 
-/* MOBILE MENU */
+.phone-btn{
+position:fixed;
+bottom:90px;
+right:20px;
+width:60px;
+height:60px;
+background:red;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+text-decoration:none;
+color:white;
+z-index:99999;
+}
+
+/* MOBILE FIX */
 
 @media(max-width:768px){
 
@@ -876,14 +803,14 @@ color:#d4af37;
 display:block;
 }
 
-#themeToggle{
-position:static;
+.logo span{
+display:none;
 }
 
 nav{
 display:none;
 position:absolute;
-top:80px;
+top:75px;
 left:0;
 width:100%;
 background:#0f172a;
@@ -897,21 +824,16 @@ display:flex;
 }
 
 nav a{
-margin:12px 0;
+margin:10px 0;
 font-size:18px;
 }
 
-.logo span{
-font-size:16px;
-}
-
-.logo img{
-width:45px;
-height:45px;
+.about{
+grid-template-columns:1fr;
 }
 
 .hero-content h1{
-font-size:40px;
+font-size:42px;
 }
 
 .hero-content p{
@@ -1899,23 +1821,7 @@ document
 
 }
 </script>
-<a href="tel:+918485808399"
-style="
-position:fixed;
-bottom:100px;
-right:25px;
-width:65px;
-height:65px;
-background:red;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:30px;
-text-decoration:none;
-z-index:99999;
-color:white;
-">
+<a href="tel:+918485808399" class="phone-btn">
 📞
 </a>
  
