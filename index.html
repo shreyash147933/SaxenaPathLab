@@ -760,18 +760,63 @@ padding:14px 24px;
 font-size:15px;
 }
 
-}@media(max-width:768px){
+@media(max-width:768px){
 
-.hero-content h1{
-font-size:42px;
-}
-
-.hero-content p{
-font-size:16px;
+header{
+    padding:12px 15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .logo{
-font-size:16px;
+    max-width:70%;
+    font-size:18px;
+}
+
+.logo img{
+    width:50px;
+    height:50px;
+}
+
+.logo span{
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+/* Hide menu on mobile */
+nav{
+    display:none;
+}
+
+/* Theme button */
+#themeToggle{
+    position:static;
+    width:50px;
+    height:50px;
+    font-size:22px;
+}
+
+/* Hero section */
+.hero-content h1{
+    font-size:48px;
+}
+
+.hero-content p{
+    font-size:16px;
+    padding:0 10px;
+}
+
+/* Floating buttons */
+.whatsapp-btn{
+    width:55px;
+    height:55px;
+}
+
+.chatbot-toggle{
+    width:55px;
+    height:55px;
 }
 
 }
